@@ -1,4 +1,4 @@
-# Hey, I'm Egor 👾
+# Heya, I'm Egor
 
 Student at BMSTU. I make games, and I keep making them without engines, on purpose. Sometimes I make other stuff too, like my own tiny ChatGPT. Trying to get into mobile dev next.
 
