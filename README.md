@@ -1,4 +1,4 @@
-# Hey, I'm Egor
+# Heya, I'm Egor
 
 Student at BMSTU. I like building things from scratch just to see how they work under the hood: a Minecraft-style game with no engine, a language model built from scratch, and lately, native macOS apps that dig into the hardware. Thinking about getting into mobile dev next.
 
@@ -36,7 +36,7 @@ Student at BMSTU. I like building things from scratch just to see how they work 
 </tr>
 </table>
 
-All three are native Swift apps with zero external dependencies and build with a single script. No full Xcode install needed. HWMonitor and ClipShot have ready-to-run builds in Releases.
+All three are native Swift apps with zero dependencies and build with a single script. No full Xcode install needed. Ready-to-run builds are available in Releases for all three.
 
 ## Games
 
