@@ -11,24 +11,27 @@ Student at BMSTU. I like building things from scratch to see how they work insid
 - 🏅 **Prize winner**, RTU MIREA Multidisciplinary Olympiad 2026, Computer Science track
 - 🎓 Yandex Lyceum, "Fundamentals of Python Programming" (2025–2026)
 
-## 🍎 macOS apps
+##  macOS apps
 
 <table>
 <tr>
 <td width="33%" valign="top">
 <a href="https://github.com/gdfaler/HWMonitor"><img src="https://raw.githubusercontent.com/gdfaler/HWMonitor/main/docs/social-preview.png" alt="HWMonitor"></a>
-<p><b><a href="https://github.com/gdfaler/HWMonitor">HWMonitor</a></b><br>
-Hardware monitor for Apple Silicon: every SMC temperature sensor (115 on an M5), per-core frequencies, power draw. A MacBook Air has no fan, so it cools the chip by moving the heaviest background apps to efficiency cores. Under the same test load, that took the chip from 92–101 °C down to about 50 °C.</p>
+<h3>🌡️ <a href="https://github.com/gdfaler/HWMonitor">HWMonitor</a></h3>
+<p>Hardware monitor for Apple Silicon: 115 temperature sensors, per-core frequencies, power draw. It also cools a fanless MacBook Air by moving heavy background apps to efficiency cores. Same load, 92–101 °C down to about 50 °C.</p>
+<sub>Swift · SwiftUI · SMC · IOReport</sub>
 </td>
 <td width="33%" valign="top">
 <a href="https://github.com/gdfaler/DynamicIsland"><img src="https://raw.githubusercontent.com/gdfaler/DynamicIsland/main/assets/social-preview.png" alt="DynamicIsland"></a>
-<p><b><a href="https://github.com/gdfaler/DynamicIsland">DynamicIsland</a></b><br>
-Turns the MacBook notch into an iPhone-style dynamic island: now playing from Music, Spotify or Safari, a visualizer that moves to the actual sound (FFT), a timer, and alerts for charging, volume and headphones. No private APIs.</p>
+<h3>🏝️ <a href="https://github.com/gdfaler/DynamicIsland">DynamicIsland</a></h3>
+<p>Turns the MacBook notch into an iPhone-style dynamic island: now playing from Music, Spotify or Safari, a visualizer that moves to the actual sound (FFT), a timer, and alerts for charging, volume and headphones. No private APIs.</p>
+<sub>Swift · SwiftUI · ScreenCaptureKit · vDSP</sub>
 </td>
 <td width="33%" valign="top">
 <a href="https://github.com/gdfaler/ClipShot"><img src="https://raw.githubusercontent.com/gdfaler/ClipShot/main/docs/social-preview.png" alt="ClipShot"></a>
-<p><b><a href="https://github.com/gdfaler/ClipShot">ClipShot</a></b><br>
-Press ⇧⌘1 or ⇧⌘S and the screenshot goes straight to the clipboard, so nothing piles up on the desktop. A tiny menu bar app in under 900 lines of Swift.</p>
+<h3>📸 <a href="https://github.com/gdfaler/ClipShot">ClipShot</a></h3>
+<p>Press ⇧⌘1 or ⇧⌘S and the screenshot goes straight to the clipboard, so nothing piles up on the desktop. A tiny menu bar app in under 900 lines of Swift.</p>
+<sub>Swift · AppKit</sub>
 </td>
 </tr>
 </table>
@@ -37,21 +40,42 @@ All three are native Swift with zero dependencies and build with one script, no 
 
 ## 🎮 Games
 
-### 🧱 [MineAndCraft](https://github.com/gdfaler/MineAndCraft)
-Minecraft, except I wrote every block of it. The world is infinite and generated from a seed: hills, caves, ores, forests, all streamed in chunks on background threads. It saves when you quit and remembers your settings. Java + LWJGL, straight OpenGL, no engine.
-
-Mojang, please don't sue.
-
-### 🐻 [Five Nights On Your Own](https://github.com/gdfaler/FiveNightOnYourOwn)
-FNaF where Freddy is literally the letter F. Cameras, doors, lights, power, six nights, all drawn in ASCII inside a JavaFX window that pretends to be an old terminal.
+<table>
+<tr>
+<td width="50%" valign="top">
+<h3>🧱 <a href="https://github.com/gdfaler/MineAndCraft">MineAndCraft</a></h3>
+<p>Minecraft, except I wrote every block of it. An infinite world from a seed with hills, caves, ores and forests, streamed in chunks on background threads. No engine, straight OpenGL.<br><br>Mojang, please don't sue.</p>
+<sub>Java · LWJGL · OpenGL · 60 tests</sub>
+</td>
+<td width="50%" valign="top">
+<h3>🐻 <a href="https://github.com/gdfaler/FiveNightOnYourOwn">Five Nights On Your Own</a></h3>
+<p>FNaF where Freddy is literally the letter F. Cameras, doors, lights, power and six nights, all drawn in ASCII inside a window that pretends to be an old terminal.</p>
+<sub>Java · JavaFX</sub>
+</td>
+</tr>
+</table>
 
 ## 🧪 Other stuff
 
-### 🧠 [GDF AI](https://github.com/gdfaler/gdf_ai)
-I built my own ChatGPT. It has 3 million parameters and has read 30 KB of text in its whole life, so it's not very smart, but it's trying its best. Under the hood it's a LLaMA-style transformer I wrote from scratch in PyTorch, with its own tokenizer and a Flask web chat. Trains in under a minute, runs offline.
-
-- 💬 [Vneurochka](https://github.com/gdfaler/vneurochka2025): Android app for school clubs, with accounts and chat on Firebase. Made with a teammate for the "Potential" 2025 competition.
-- ⚙️ [arraylib](https://github.com/gdfaler/arraylib): calculates sums, averages and medians of arrays. Has CMake, unit tests, integration tests and CI. Overkill? Yes.
+<table>
+<tr>
+<td width="33%" valign="top">
+<h3>🧠 <a href="https://github.com/gdfaler/gdf_ai">GDF AI</a></h3>
+<p>My own tiny ChatGPT: a LLaMA-style transformer written from scratch, with its own tokenizer and a web chat. It has read 30 KB of text in its whole life, so it's not very smart, but it's trying its best.</p>
+<sub>Python · PyTorch · Flask</sub>
+</td>
+<td width="33%" valign="top">
+<h3>💬 <a href="https://github.com/gdfaler/vneurochka2025">Vneurochka</a></h3>
+<p>Android app for school clubs with accounts, user search and chat. Built with a teammate for the "Potential" 2025 competition.</p>
+<sub>Java · Android · Firebase</sub>
+</td>
+<td width="33%" valign="top">
+<h3>⚙️ <a href="https://github.com/gdfaler/arraylib">arraylib</a></h3>
+<p>Calculates sums, averages and medians of arrays. Has CMake, unit tests, integration tests and CI.<br><br>Overkill? Yes.</p>
+<sub>C++17 · CMake · CTest</sub>
+</td>
+</tr>
+</table>
 
 ```text
 loop. fail. upgrade. repeat.
