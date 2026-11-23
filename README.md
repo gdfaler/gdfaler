@@ -1,6 +1,6 @@
-<div align="center">
-  <img src="assets/header.svg" alt="whoami: egor, CS student at BMSTU. loop. fail. upgrade. repeat." width="860">
-</div>
+<p align="center">
+  <img src="assets/banner.svg" alt="egor" width="100%">
+</p>
 
 
 # Heya, I'm Egor
@@ -149,14 +149,6 @@ Famous last words.
 </td>
 </tr>
 </table>
-
-## Contribution snake
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/output/github-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/output/github-snake.svg">
-  <img alt="Snake eating my contribution graph" src="https://raw.githubusercontent.com/gdfaler/gdfaler/output/github-snake-dark.svg">
-</picture>
 
 ---
 
