@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="280" viewBox="0 0 1000 280" role="img" aria-label="Abstract animated aurora banner with the name egor">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b0f1a"/>
+      <stop offset="1" stop-color="#140d26"/>
+    </linearGradient>
+    <filter id="blur" x="-30%" y="-60%" width="160%" height="220%">
+      <feGaussianBlur stdDeviation="38"/>
+    </filter>
+    <filter id="glow" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.10"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.55" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="m"><rect width="1000" height="280" fill="url(#fade)"/></mask>
+  </defs>
+
+  <rect width="1000" height="280" rx="18" fill="url(#sky)"/>
+
+  <g filter="url(#blur)">
+    <ellipse cx="220" cy="150" rx="190" ry="60" fill="#7c3aed" opacity="0.75">
+      <animate attributeName="cx" values="220;380;220" dur="14s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="60;95;60" dur="9s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="520" cy="120" rx="230" ry="50" fill="#22d3ee" opacity="0.6">
+      <animate attributeName="cx" values="520;380;640;520" dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="50;85;50" dur="11s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="800" cy="160" rx="200" ry="55" fill="#f472b6" opacity="0.6">
+      <animate attributeName="cx" values="800;640;800" dur="16s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="55;90;55" dur="10s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="480" cy="210" rx="260" ry="40" fill="#34d399" opacity="0.35">
+      <animate attributeName="cx" values="480;600;350;480" dur="20s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+
+  <rect width="1000" height="280" rx="18" fill="url(#dots)" mask="url(#m)"/>
+
+  <g fill="#fff" filter="url(#glow)">
+    <circle cx="120" cy="60" r="1.6"><animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/></circle>
+    <circle cx="310" cy="38" r="1.2"><animate attributeName="opacity" values="1;0.2;1" dur="4s" repeatCount="indefinite"/></circle>
+    <circle cx="470" cy="70" r="1.8"><animate attributeName="opacity" values="0.3;1;0.3" dur="5s" repeatCount="indefinite"/></circle>
+    <circle cx="640" cy="34" r="1.3"><animate attributeName="opacity" values="1;0.2;1" dur="3.5s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="64" r="1.7"><animate attributeName="opacity" values="0.2;1;0.2" dur="4.5s" repeatCount="indefinite"/></circle>
+    <circle cx="920" cy="30" r="1.1"><animate attributeName="opacity" values="1;0.3;1" dur="6s" repeatCount="indefinite"/></circle>
+    <circle cx="60" cy="110" r="1.2"><animate attributeName="opacity" values="0.4;1;0.4" dur="5.5s" repeatCount="indefinite"/></circle>
+    <circle cx="560" cy="22" r="1.0"><animate attributeName="opacity" values="1;0.2;1" dur="2.8s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <text x="500" y="158" text-anchor="middle" fill="#ffffff" filter="url(#glow)"
+        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:76px;font-weight:200;letter-spacing:22px">egor</text>
+  <rect x="1" y="1" width="998" height="278" rx="17" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+</svg>
