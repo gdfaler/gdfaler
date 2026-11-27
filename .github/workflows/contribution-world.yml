@@ -33,7 +33,7 @@ jobs:
           set -euo pipefail
           # The source/default branch is never committed or pushed by this job.
           set +e
-          git ls-remote --exit-code --heads origin contribution-world > "$RUNNER_TEMP/world-ref"
+          git ls-remote --exit-code --heads origin refs/heads/contribution-world > "$RUNNER_TEMP/world-ref"
           status=$?
           set -e
           if [ "$status" -eq 0 ]; then
