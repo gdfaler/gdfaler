@@ -1,9 +1,20 @@
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/island-dark-mobile.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/island-light-mobile.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/island-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/island-light.svg">
+  <img src="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/island-light.svg" width="100%" alt="GitHub Dynamic Island: cycles through latest authored commit, latest stable release and weekly authored commits. Dated public snapshot; all values in the text snapshot.">
+</picture>
 
 # Heya, I'm Egor
 
+**Building things. Breaking things. Understanding things.**
+
 CS student at BMSTU, interested in building things from scratch and figuring out what happens under the hood. I make native macOS apps, experiment with neural networks, and occasionally reinvent things that probably didn't need reinventing.
 
-Currently exploring systems programming, machine learning, and the macOS ecosystem. Mobile development might be next. We'll see what breaks first.
+Currently exploring systems programming, machine learning, and the macOS ecosystem. We'll see what breaks first.
+
+[Public data & text fallback](https://github.com/gdfaler/gdfaler/blob/profile-assets/assets/profile/snapshot.md) · [How this profile works](docs/profile.md)
 
 ## Achievements
 
@@ -14,148 +25,100 @@ Currently exploring systems programming, machine learning, and the macOS ecosyst
 
 ## Tech Stack
 
-<p>
-  <img src="https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=swift&logoColor=white" alt="Swift">
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C++">
-</p>
+**Swift · Java · Python · C++**  
+Native interfaces: **SwiftUI · AppKit** / Systems & graphics: **SMC · IOReport · LWJGL · OpenGL**  
+Learning & experiments: **PyTorch · Flask** / Mobile: **Android · Firebase** / Tooling: **CMake · CTest · GitHub Actions**
 
 ## Featured Projects
 
-<table>
-<tr>
-<td width="33%" valign="top">
+<a href="https://github.com/gdfaler/HWMonitor">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-HWMonitor-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-HWMonitor-light.svg">
+  <img src="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-HWMonitor-light.svg" width="420" alt="HWMonitor — open repository. Description and release links below.">
+</picture>
+</a>
+<a href="https://github.com/gdfaler/DynamicIsland">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-DynamicIsland-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-DynamicIsland-light.svg">
+  <img src="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-DynamicIsland-light.svg" width="420" alt="DynamicIsland — open repository. Description and release links below.">
+</picture>
+</a>
+<a href="https://github.com/gdfaler/TorrentPlayer">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-TorrentPlayer-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-TorrentPlayer-light.svg">
+  <img src="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-TorrentPlayer-light.svg" width="420" alt="TorrentPlayer — open repository. Description and release links below.">
+</picture>
+</a>
+<a href="https://github.com/gdfaler/ClipShot">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-ClipShot-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-ClipShot-light.svg">
+  <img src="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/project-ClipShot-light.svg" width="420" alt="ClipShot — open repository. Description and release links below.">
+</picture>
+</a>
 
-<a href="https://github.com/gdfaler/HWMonitor"><img src="https://raw.githubusercontent.com/gdfaler/HWMonitor/main/docs/social-preview.png" alt="HWMonitor"></a>
 
-### [HWMonitor](https://github.com/gdfaler/HWMonitor)
+<details>
+<summary>Project descriptions &amp; releases — readable without images</summary>
 
-A macOS utility for digging into what your Mac is actually doing. Reads 115 temperature sensors, tracks per-core frequencies and power consumption, and can help reduce thermal load by moving heavy background apps to efficiency cores.
+- **[HWMonitor](https://github.com/gdfaler/HWMonitor)** — telemetry and heat management for Apple Silicon Macs. Sensor coverage varies by hardware; SMC and IOReport use undocumented interfaces. **Swift · SwiftUI.** [Releases](https://github.com/gdfaler/HWMonitor/releases).
+- **[DynamicIsland](https://github.com/gdfaler/DynamicIsland)** — now playing, an audio visualizer, timers and alerts around the MacBook notch. Documented facilities by default; experimental MediaRemote support is opt-in. **Swift · SwiftUI · ScreenCaptureKit · vDSP.** [Releases](https://github.com/gdfaler/DynamicIsland/releases).
+- **[TorrentPlayer](https://github.com/gdfaler/TorrentPlayer)** — native macOS video player for local files and BitTorrent streaming. An early MVP: local playback is the most tested path; public-torrent streaming still has reliability limits. Uses third-party libraries. **Swift · AppKit · C++ · libtorrent · mpv.** [Releases](https://github.com/gdfaler/TorrentPlayer/releases).
+- **[ClipShot](https://github.com/gdfaler/ClipShot)** — a tiny menu bar app that sends screen, window and region screenshots to the clipboard with keyboard shortcuts. Your desktop has enough PNGs already. **Swift · AppKit.** [Releases](https://github.com/gdfaler/ClipShot/releases).
 
-Same workload, temperatures from 92–101 °C down to around 50 °C in my tests. Your MacBook might finally stop auditioning for a space heater.
+</details>
 
-**Swift · SwiftUI · SMC · IOReport**
+## Developer Monitor
 
-[Repository](https://github.com/gdfaler/HWMonitor) · [Releases](https://github.com/gdfaler/HWMonitor/releases)
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/monitor-dark-mobile.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/monitor-light-mobile.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/monitor-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/monitor-light.svg">
+  <img src="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/monitor-light.svg" width="100%" alt="Developer Monitor: public repositories, primary-language repository counts, stable releases, release-asset downloads, latest default-branch CI run and 30-day authored commit chart. Exact values and dates in the text snapshot.">
+</picture>
 
-</td>
-<td width="33%" valign="top">
+Languages count **repositories by GitHub primary language**, not lines of code or proficiency. Activity counts **authored default-branch commits**, not contributions. Downloads count **stable release assets**, not users. CI shows the **latest Actions run**, not an overall health score.
 
-<a href="https://github.com/gdfaler/DynamicIsland"><img src="https://raw.githubusercontent.com/gdfaler/DynamicIsland/main/assets/social-preview.png" alt="DynamicIsland"></a>
-
-### [DynamicIsland](https://github.com/gdfaler/DynamicIsland)
-
-Makes the MacBook notch useful: now-playing info from Music, Spotify, and Safari, an audio visualizer driven by actual sound, timers, and alerts for charging, volume, and headphones. No private APIs.
-
-Because if your MacBook already has a notch, it might as well earn its keep.
-
-**Swift · SwiftUI · ScreenCaptureKit · vDSP**
-
-[Repository](https://github.com/gdfaler/DynamicIsland) · [Releases](https://github.com/gdfaler/DynamicIsland/releases)
-
-</td>
-<td width="33%" valign="top">
-
-<a href="https://github.com/gdfaler/ClipShot"><img src="https://raw.githubusercontent.com/gdfaler/ClipShot/main/docs/social-preview.png" alt="ClipShot"></a>
-
-### [ClipShot](https://github.com/gdfaler/ClipShot)
-
-A tiny native macOS menu bar app that sends screenshots straight to the clipboard. Capture a screen, window, or region using keyboard shortcuts, without leaving a pile of PNGs on your desktop.
-
-Under 900 lines of Swift. Sometimes the best feature is not creating another problem.
-
-**Swift · AppKit**
-
-[Repository](https://github.com/gdfaler/ClipShot) · [Releases](https://github.com/gdfaler/ClipShot/releases)
-
-</td>
-</tr>
-</table>
-
-All three are native Swift apps with zero external dependencies and build with a single script. No full Xcode install needed.
-
-## More Projects
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### [GDF AI](https://github.com/gdfaler/gdf_ai)
-
-My own tiny ChatGPT-like project: a LLaMA-style transformer built from scratch, with its own tokenizer and a web chat. It's trained on about 30 KB of text, so it isn't exactly the next GPT-5.
-
-But hey, gotta start somewhere.
-
-**Python · PyTorch · Flask**
-
-</td>
-<td width="50%" valign="top">
-
-### [MineAndCraft](https://github.com/gdfaler/MineAndCraft)
-
-Minecraft-inspired voxel game with a custom engine, procedural terrain, caves, ores, and forests, streamed in chunks on background threads. No game engine, just Java and OpenGL.
-
-Mojang, please don't sue.
-
-**Java · LWJGL · OpenGL · 60 tests**
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [Five Nights On Your Own](https://github.com/gdfaler/FiveNightOnYourOwn)
-
-FNaF, except Freddy is literally the letter F. Cameras, doors, lights, power, and six nights, all drawn in ASCII inside a window pretending to be an old terminal.
-
-**Java · JavaFX**
-
-</td>
-<td width="50%" valign="top">
-
-### [Vneurochka](https://github.com/gdfaler/vneurochka2025)
-
-An Android app for school clubs, with accounts, user search, and chat. Built with a teammate for the 2025 "Potential" competition.
-
-**Java · Android · Firebase**
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [arraylib](https://github.com/gdfaler/arraylib)
-
-A C++ library for calculating array sums, averages, and medians. Comes with CMake, unit tests, integration tests, and CI.
-
-Overkill? Absolutely.
-
-**C++17 · CMake · CTest**
-
-</td>
-<td width="50%" valign="top">
-
-### What's next?
-
-Exploring new ideas, learning how systems work, and building more things that start as "this should be pretty simple".
-
-Famous last words.
-
-</td>
-</tr>
-</table>
-
----
-
-`loop. fail. upgrade. repeat.`
-
+[Exact values & daily activity](https://github.com/gdfaler/gdfaler/blob/profile-assets/assets/profile/snapshot.md) · [Sources, scope & limitations](docs/profile.md)
 
 ## My Contribution World
 
-<!-- Add this block to your profile README after the first successful workflow run. -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-light.svg">
   <img alt="My Contribution World: one voxel per day, height and terrain color reflect GitHub contribution activity" src="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-light.svg" width="100%">
 </picture>
+
+One day, one block. A world built by showing up. Inspired by [MineAndCraft](https://github.com/gdfaler/MineAndCraft). [Calendar data](https://github.com/gdfaler/gdfaler/blob/contribution-world/calendar.json).
+
+## More Projects
+
+| Project | What's under the hood |
+|---|---|
+| [GDF AI](https://github.com/gdfaler/gdf_ai) | A small LLaMA-style transformer built from scratch, with its own tokenizer and web chat. **Python · PyTorch · Flask.** Gotta start somewhere. |
+| [MineAndCraft](https://github.com/gdfaler/MineAndCraft) | A voxel sandbox with a custom engine, procedural terrain, caves and chunk streaming. **Java · LWJGL · OpenGL.** Mojang, please don't sue. |
+| [Five Nights On Your Own](https://github.com/gdfaler/FiveNightOnYourOwn) | Cameras, doors, lights and power in an ASCII survival-horror game. Freddy is literally the letter F. **Java · JavaFX.** |
+| [Vneurochka](https://github.com/gdfaler/vneurochka2025) | School clubs, accounts, search and chat; built with a teammate for Potential 2025. **Java · Android · Firebase.** |
+| [arraylib](https://github.com/gdfaler/arraylib) | Array sums, averages and medians, with unit/integration tests and CI. **C++17 · CMake · CTest.** Overkill? Absolutely. |
+
+## One more process
+
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/terminal-dark-mobile.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/terminal-light-mobile.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/terminal-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/terminal-light.svg">
+  <img src="https://raw.githubusercontent.com/gdfaler/gdfaler/profile-assets/assets/profile/terminal-light.svg" width="100%" alt="Decorative terminal: Egor; learn, build, break, repeat. Warning: sleep dependency not found.">
+</picture>
+
+`whoami → Egor` · `life.sh → learn / build / break / repeat` · `[WARN] sleep: dependency not found`
+
+---
+
+`loop. fail. upgrade. repeat.`
+
+<sub>Custom SVGs, public GitHub data, no third-party stats widgets. This review uses a manually seeded, dated snapshot. Scheduled refresh is available only after the workflow reaches the default branch; nothing auto-refreshes before merge.</sub>

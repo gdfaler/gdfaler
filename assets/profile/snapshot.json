@@ -1,0 +1,270 @@
+{
+  "schema": 1,
+  "owner": "gdfaler",
+  "as_of": "2026-11-27T22:04:38+00:00",
+  "repos": [
+    {
+      "name": "arraylib",
+      "url": "https://github.com/gdfaler/arraylib",
+      "branch": "main",
+      "language": "C++",
+      "releases": 0,
+      "downloads": 0,
+      "ci": {
+        "label": "success",
+        "url": "https://github.com/gdfaler/arraylib/actions/runs/37103211068",
+        "name": "CI",
+        "date": "2026-10-03T06:29:28Z"
+      }
+    },
+    {
+      "name": "ClipShot",
+      "url": "https://github.com/gdfaler/ClipShot",
+      "branch": "main",
+      "language": "Swift",
+      "releases": 1,
+      "downloads": 0,
+      "ci": {
+        "label": "No runs",
+        "url": "https://github.com/gdfaler/ClipShot/actions"
+      }
+    },
+    {
+      "name": "DynamicIsland",
+      "url": "https://github.com/gdfaler/DynamicIsland",
+      "branch": "main",
+      "language": "Swift",
+      "releases": 5,
+      "downloads": 28,
+      "ci": {
+        "label": "success",
+        "url": "https://github.com/gdfaler/DynamicIsland/actions/runs/42836541853",
+        "name": "CI",
+        "date": "2026-11-10T14:41:50Z"
+      }
+    },
+    {
+      "name": "FiveNightOnYourOwn",
+      "url": "https://github.com/gdfaler/FiveNightOnYourOwn",
+      "branch": "master",
+      "language": "Java",
+      "releases": 0,
+      "downloads": 0,
+      "ci": {
+        "label": "No runs",
+        "url": "https://github.com/gdfaler/FiveNightOnYourOwn/actions"
+      }
+    },
+    {
+      "name": "gdf_ai",
+      "url": "https://github.com/gdfaler/gdf_ai",
+      "branch": "main",
+      "language": "Python",
+      "releases": 0,
+      "downloads": 0,
+      "ci": {
+        "label": "No runs",
+        "url": "https://github.com/gdfaler/gdf_ai/actions"
+      }
+    },
+    {
+      "name": "gdfaler",
+      "url": "https://github.com/gdfaler/gdfaler",
+      "branch": "main",
+      "language": "Python",
+      "releases": 0,
+      "downloads": 0,
+      "ci": {
+        "label": "success",
+        "url": "https://github.com/gdfaler/gdfaler/actions/runs/46011973017",
+        "name": "Contribution World",
+        "date": "2026-11-27T14:00:29Z"
+      }
+    },
+    {
+      "name": "HWMonitor",
+      "url": "https://github.com/gdfaler/HWMonitor",
+      "branch": "main",
+      "language": "Swift",
+      "releases": 2,
+      "downloads": 0,
+      "ci": {
+        "label": "No runs",
+        "url": "https://github.com/gdfaler/HWMonitor/actions"
+      }
+    },
+    {
+      "name": "MineAndCraft",
+      "url": "https://github.com/gdfaler/MineAndCraft",
+      "branch": "master",
+      "language": "Java",
+      "releases": 0,
+      "downloads": 0,
+      "ci": {
+        "label": "success",
+        "url": "https://github.com/gdfaler/MineAndCraft/actions/runs/37841320591",
+        "name": "Build",
+        "date": "2026-10-08T20:41:58Z"
+      }
+    },
+    {
+      "name": "TorrentPlayer",
+      "url": "https://github.com/gdfaler/TorrentPlayer",
+      "branch": "main",
+      "language": "C++",
+      "releases": 1,
+      "downloads": 14,
+      "ci": {
+        "label": "No runs",
+        "url": "https://github.com/gdfaler/TorrentPlayer/actions"
+      }
+    },
+    {
+      "name": "vneurochka2025",
+      "url": "https://github.com/gdfaler/vneurochka2025",
+      "branch": "main",
+      "language": "Java",
+      "releases": 0,
+      "downloads": 0,
+      "ci": {
+        "label": "No runs",
+        "url": "https://github.com/gdfaler/vneurochka2025/actions"
+      }
+    }
+  ],
+  "latest_commit": {
+    "repo": "gdfaler",
+    "sha": "8568bf0a4381f76b7e83aed8deec818b2be37b7d",
+    "url": "https://github.com/gdfaler/gdfaler/commit/8568bf0a4381f76b7e83aed8deec818b2be37b7d",
+    "date": "2026-11-27T14:00:01Z",
+    "message": "Merge pull request #6 from gdfaler/fix/contribution-world-publish"
+  },
+  "latest_release": {
+    "repo": "DynamicIsland",
+    "tag": "v1.3.1",
+    "date": "2026-11-10T14:40:22Z",
+    "url": "https://github.com/gdfaler/DynamicIsland/releases/tag/v1.3.1"
+  },
+  "activity": [
+    {
+      "date": "2026-10-29",
+      "commits": 0
+    },
+    {
+      "date": "2026-10-30",
+      "commits": 0
+    },
+    {
+      "date": "2026-10-31",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-01",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-02",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-03",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-04",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-05",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-06",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-07",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-08",
+      "commits": 15
+    },
+    {
+      "date": "2026-11-09",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-10",
+      "commits": 7
+    },
+    {
+      "date": "2026-11-11",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-12",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-13",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-14",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-15",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-16",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-17",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-18",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-19",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-20",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-22",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-23",
+      "commits": 3
+    },
+    {
+      "date": "2026-11-24",
+      "commits": 1
+    },
+    {
+      "date": "2026-11-25",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-26",
+      "commits": 0
+    },
+    {
+      "date": "2026-11-27",
+      "commits": 4
+    }
+  ]
+}
