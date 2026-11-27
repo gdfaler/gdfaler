@@ -149,3 +149,13 @@ Famous last words.
 ---
 
 `loop. fail. upgrade. repeat.`
+
+
+## My Contribution World
+
+<!-- Add this block to your profile README after the first successful workflow run. -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-light.svg">
+  <img alt="My Contribution World: one voxel per day, height and terrain color reflect GitHub contribution activity" src="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-light.svg" width="100%">
+</picture>
