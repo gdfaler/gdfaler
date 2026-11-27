@@ -5,17 +5,17 @@ CS student at BMSTU. I build macOS apps and explore systems, graphics and machin
 ## Projects
 
 <p>
-  <a href="https://github.com/gdfaler/DynamicIsland"><img src="assets/apps/dynamic-island.png" width="32" height="32" alt=""> <strong>DynamicIsland</strong></a><br>
+  <a href="https://github.com/gdfaler/DynamicIsland"><img src="assets/apps/dynamic-island.png" width="32" height="32" alt="" align="middle"> <strong>DynamicIsland</strong></a><br>
   Music, timers and alerts around the MacBook notch.
 </p>
 
 <p>
-  <a href="https://github.com/gdfaler/HWMonitor"><img src="assets/apps/hwmonitor.png" width="32" height="32" alt=""> <strong>HWMonitor</strong></a><br>
+  <a href="https://github.com/gdfaler/HWMonitor"><img src="assets/apps/hwmonitor.png" width="32" height="32" alt="" align="middle"> <strong>HWMonitor</strong></a><br>
   Temperatures, power and processes on Apple Silicon Macs.
 </p>
 
 <p>
-  <a href="https://github.com/gdfaler/ClipShot"><img src="assets/apps/clipshot.png" width="32" height="32" alt=""> <strong>ClipShot</strong></a><br>
+  <a href="https://github.com/gdfaler/ClipShot"><img src="assets/apps/clipshot.png" width="32" height="32" alt="" align="middle"> <strong>ClipShot</strong></a><br>
   Screen, window or region screenshots, straight to the clipboard.
 </p>
 
