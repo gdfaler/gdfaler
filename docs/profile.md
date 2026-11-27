@@ -12,13 +12,15 @@ python3 -m unittest discover -s tests -v
 # Fresh public data; optional GH_TOKEN increases the API rate limit:
 python3 scripts/profile.py --fetch
 
-# Full local preview (open work/profile-preview.html):
+# Local SVG composition preview (open work/profile-preview.html):
 python3 scripts/preview_profile.py
 ```
 
 The new workflow runs on pushes to `feat/profile-under-the-hood`, on pull requests to validate committed assets, and manually **after the workflow becomes registered on the default branch**. Before merge, the push run uploads a fresh preview artifact and does not commit anywhere. Scheduled Actions only run from the default branch: **there is no scheduled refresh of this review branch before merge**.
 
 After merge, the schedule refreshes the fixed `profile-assets` branch only. It never commits to main, the review branch or `contribution-world`. The README points to `profile-assets`, manually seeded with the exact checked-in snapshot for this review. The committed copies in `assets/profile` also support offline reproduction and local preview. Before merge, this output branch is a frozen dated preview; after merge the scheduled workflow can refresh it without changing main.
+
+The compact Monitor shows four featured repositories; its language distribution and activity use the full set of owned public non-fork repositories. The full per-repository table remains in the text snapshot.
 
 ## Sources and definitions
 

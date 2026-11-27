@@ -141,7 +141,7 @@ def island(data, theme, mobile=False):
 
 def monitor(data,theme,mobile=False):
     w=420 if mobile else 900
-    body=text(24,31,'DEVELOPER MONITOR',12,'muted','letter-spacing="2"')+text(24,62,'Public signals. Under the hood.',20)
+    body=text(24,31,'DEVELOPER MONITOR',12,'muted','letter-spacing="2"')+text(24,62,f'{len(data["repos"])} public repos · {sum(r["releases"] for r in data["repos"])} stable releases',18)
     body+=text(24,86,'SNAPSHOT / '+data['as_of'][:19].replace('T',' ')+' UTC',10,'muted')
     body+=f'<path d="M24 103H{w-24}" class="line"/>'
     if mobile:
@@ -150,7 +150,8 @@ def monitor(data,theme,mobile=False):
         for x,v in [(24,'REPOSITORY'),(300,'PRIMARY LANGUAGE'),(510,'RELEASES'),(620,'DOWNLOADS'),(744,'LATEST CI RUN')]:
             body+=text(x,129,v,10,'muted')
     step=53 if mobile else 30
-    for i,r in enumerate(data['repos']):
+    shown=[r for name in ('HWMonitor','DynamicIsland','TorrentPlayer','ClipShot') for r in data['repos'] if r['name']==name]
+    for i,r in enumerate(shown):
         y=157+i*step
         body+=f'<a href="{esc(r["url"])}">'+text(24,y,r['name'],13)+'</a>'
         if mobile:
@@ -159,7 +160,7 @@ def monitor(data,theme,mobile=False):
         else:
             body+=text(300,y,r['language'] or 'Unclassified',12,'muted')+text(535,y,r['releases'],12)+text(620,y,f'{r["downloads"]:,}',12)
             body+=f'<a href="{esc(r["ci"]["url"])}">'+text(744,y,short(r['ci']['label'],17),11,'accent')+'</a>'
-    y=155+len(data['repos'])*step
+    y=155+len(shown)*step
     body+=f'<path d="M24 {y}H{w-24}" class="line"/>'
     counts=Counter(r['language'] or 'Unclassified' for r in data['repos'])
     body+=text(24,y+30,'LANGUAGES / ONE REPOSITORY, ONE VOTE',11,'muted')
@@ -181,7 +182,7 @@ def monitor(data,theme,mobile=False):
         body+=f'<rect x="{24+i*bw:.2f}" y="{y+90-h:.2f}" width="{max(1,bw-3):.2f}" height="{max(1,h):.2f}" fill="{colors[0]}" opacity="{1 if d["commits"] else .2}"><title>{d["date"]}: {d["commits"]} authored commits</title></rect>'
     body+=text(24,y+111,data['activity'][0]['date'],10,'muted')+text(w-24,y+111,data['activity'][-1]['date'],10,'muted','text-anchor="end"')
     body+=text(24,y+137,f'{sum(values)} commits · daily peak {max(values)} · default branches',10,'muted')
-    body+=text(24,y+159,'CI = latest run only; not an overall health score.',9,'muted')
+    body+=text(24,y+159,'Featured projects above · all repositories in text version.',9,'muted')
     return svg(theme,w,y+180,'Developer Monitor', 'Public owned non-fork repositories. Languages counted by primary repository language, not lines of code. Stable release asset downloads exclude source archives. CI is the latest default-branch Actions run. Activity is authored commits from the REST default-branch history over 30 UTC dates.',body)
 
 
@@ -195,24 +196,6 @@ def terminal(theme,mobile=False):
     css=''.join(f'.t{i}{{animation-delay:{i*1.1}s}}' for i in range(5))
     css+='.type{animation:typing 10s steps(34,end) infinite;clip-path:inset(0 0 0 0)}@keyframes typing{0%{clip-path:inset(0 100% 0 0)}12%,100%{clip-path:inset(0 0 0 0)}}.cursor{animation:blink 1s steps(2,end) infinite}@keyframes blink{50%{opacity:0}}@media(prefers-reduced-motion:reduce){.type,.cursor{animation:none;clip-path:none}}'
     return svg(theme,w,208,'Developer Terminal','A humorous terminal: learn, build, break, repeat. Sleep dependency not found. Decorative animation, no live shell.',body,css)
-
-
-PROJECTS = {
-    'HWMonitor': ('01 / SYSTEMS', 'Know your Mac.', ['Temperatures, clocks, power and processes.', 'Apple Silicon telemetry + heat management.'], 'Swift / SwiftUI / SMC / IOReport'),
-    'DynamicIsland': ('02 / INTERFACE', 'The notch earns its keep.', ['Now playing, sound, timers and alerts.', 'Documented APIs by default; opt-in experiment.'], 'Swift / SwiftUI / ScreenCaptureKit'),
-    'TorrentPlayer': ('03 / STREAMING', 'Press play. Keep downloading.', ['Local video + BitTorrent streaming MVP.', 'Public-torrent reliability is still limited.'], 'Swift / C++ / libtorrent / mpv'),
-    'ClipShot': ('04 / UTILITY', 'Screenshots. Minus the files.', ['Screen, window or region to the clipboard.', 'Native menu bar app with keyboard shortcuts.'], 'Swift / AppKit'),
-}
-
-
-def project(name, theme):
-    label, slogan, lines, stack = PROJECTS[name]
-    body=text(24,29,label,10,'muted','letter-spacing="2"')
-    body+=text(24,67,name,26)+text(24,96,slogan,13,'accent')
-    body+='<path d="M24 115H396" class="line"/>'
-    body+=text(24,142,lines[0],11,'muted')+text(24,163,lines[1],11,'muted')
-    body+=text(24,202,stack,10,'muted')+text(24,232,'REPOSITORY  ↗     RELEASES ON GITHUB',10,'accent')
-    return svg(theme,420,254,name+' / project card',slogan+' '+ ' '.join(lines)+' '+stack,body)
 
 
 def fallback(data):
@@ -235,8 +218,6 @@ def generate(data,out):
     validate(data)
     outputs={'snapshot.json': json.dumps(data,indent=2,ensure_ascii=False)+'\n','snapshot.md':fallback(data)}
     for theme in ('dark','light'):
-        for name in PROJECTS:
-            outputs[f'project-{name}-{theme}.svg']=project(name,theme)
         for mobile in (False,True):
             suffix=f'{theme}{"-mobile" if mobile else ""}.svg'
             outputs['island-'+suffix]=island(data,theme,mobile)
