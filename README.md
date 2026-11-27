@@ -5,20 +5,20 @@
 </p>
 
 <p align="center">
-  My Mac has a notch and no fan.<br>
-  <em>Apparently, I took both personally.</em>
+  My Mac has a notch and no fan.<br>  <em>Apparently, I took both personally.</em>
 </p>
-
-<br>
 
 ### So I made these
 
-- **[DynamicIsland](https://github.com/gdfaler/DynamicIsland)** — music, timers and alerts where there used to be a black rectangle.
-- **[HWMonitor](https://github.com/gdfaler/HWMonitor)** — my Mac was getting hot. I wanted to know who to blame.
-- **[TorrentPlayer](https://github.com/gdfaler/TorrentPlayer)** — a video player for people who click Play before the download is done. Early MVP.
-- **[ClipShot](https://github.com/gdfaler/ClipShot)** — take a screenshot. Put it on the clipboard. Leave my desktop alone.
+🎵 **[DynamicIsland](https://github.com/gdfaler/DynamicIsland)** · `SwiftUI`<br>Music, timers and alerts where there used to be a black rectangle.
 
-There’s also [a voxel engine](https://github.com/gdfaler/MineAndCraft) and [a tiny transformer](https://github.com/gdfaler/gdf_ai). Staying on topic is a work in progress.
+🌡️ **[HWMonitor](https://github.com/gdfaler/HWMonitor)** · `SwiftUI`<br>My Mac was getting hot. I wanted to know who to blame.
+
+🎬 **[TorrentPlayer](https://github.com/gdfaler/TorrentPlayer)** · `Swift · C++`<br>A video player for people who click Play before the download is done. Early MVP.
+
+📸 **[ClipShot](https://github.com/gdfaler/ClipShot)** · `AppKit`<br>Take a screenshot. Put it on the clipboard. Leave my desktop alone.
+
+Also: 🧱 [a voxel engine](https://github.com/gdfaler/MineAndCraft) and 🧠 [a tiny transformer](https://github.com/gdfaler/gdf_ai).<br><sub>Staying on topic is a work in progress.</sub>
 
 <br>
 
