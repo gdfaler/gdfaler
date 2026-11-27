@@ -1,20 +1,24 @@
 <h1 align="center">Heya, I'm Egor.</h1>
 
 <p align="center">
-  CS student at <strong>BMSTU</strong><br>
-  Most of my repositories started with <em>“how hard could it be?”</em>
+  CS student at <strong>BMSTU</strong>
+</p>
+
+<p align="center">
+  My Mac has a notch and no fan.<br>
+  <em>Apparently, I took both personally.</em>
 </p>
 
 <br>
 
-### Things I've built
+### So I made these
 
-- **[DynamicIsland](https://github.com/gdfaler/DynamicIsland)** — giving the MacBook notch a job.
-- **[HWMonitor](https://github.com/gdfaler/HWMonitor)** — finding out what's cooking inside my Mac.
-- **[TorrentPlayer](https://github.com/gdfaler/TorrentPlayer)** — press play, keep downloading. Early MVP.
-- **[ClipShot](https://github.com/gdfaler/ClipShot)** — screenshots without the desktop archaeology.
+- **[DynamicIsland](https://github.com/gdfaler/DynamicIsland)** — music, timers and alerts where there used to be a black rectangle.
+- **[HWMonitor](https://github.com/gdfaler/HWMonitor)** — my Mac was getting hot. I wanted to know who to blame.
+- **[TorrentPlayer](https://github.com/gdfaler/TorrentPlayer)** — a video player for people who click Play before the download is done. Early MVP.
+- **[ClipShot](https://github.com/gdfaler/ClipShot)** — take a screenshot. Put it on the clipboard. Leave my desktop alone.
 
-Also fell into the rabbit holes of [voxel engines](https://github.com/gdfaler/MineAndCraft) and [tiny transformers](https://github.com/gdfaler/gdf_ai).
+There’s also [a voxel engine](https://github.com/gdfaler/MineAndCraft) and [a tiny transformer](https://github.com/gdfaler/gdf_ai). Staying on topic is a work in progress.
 
 <br>
 
