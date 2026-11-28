@@ -1,9 +1,9 @@
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark-mobile.svg?v=a2e2600d082e">
-  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/showcase/showcase-light-mobile.svg?v=49ba501dacbd">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark.svg?v=6e3bc917a6a7">
-  <source media="(prefers-color-scheme: light)" srcset="assets/showcase/showcase-light.svg?v=17204cb18476">
-  <img src="assets/showcase/showcase-light.svg?v=17204cb18476" width="100%" alt="Egor, gdfaler. CS student at BMSTU. Animated schematics of DynamicIsland, HWMonitor and TorrentPlayer. Full text is available in About and projects below.">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark-mobile.svg?v=c4f36b2ba30b">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/showcase/showcase-light-mobile.svg?v=e4a37266c97f">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark.svg?v=9be0bceb0722">
+  <source media="(prefers-color-scheme: light)" srcset="assets/showcase/showcase-light.svg?v=a9ffb5e8f8c1">
+  <img src="assets/showcase/showcase-light.svg?v=a9ffb5e8f8c1" width="100%" alt="Egor, gdfaler. CS student at BMSTU. Animated schematics of DynamicIsland, HWMonitor and TorrentPlayer. Full text is available in About and projects below.">
 </picture>
 
 <p align="center">
@@ -28,12 +28,12 @@ Also: [a Java voxel engine](https://github.com/gdfaler/MineAndCraft) and [a smal
 </details>
 
 <details>
-<summary><samp>ACTIVITY / Contribution calendar</samp></summary>
+<summary><samp>ACTIVITY / Contributions</samp></summary>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-world/world-dark.svg?v=ca4f059ee8d4">
-  <source media="(prefers-color-scheme: light)" srcset="assets/contribution-world/world-light.svg?v=365806487295">
-  <img src="assets/contribution-world/world-light.svg?v=365806487295" width="100%" alt="Contribution calendar: weeks run left to right, seven weekday rows run top to bottom. Month brackets align with week columns. Each day has a flat marker or a raised 3D column. Height follows real contribution counts on a logarithmic scale; cap colors follow GitHub activity levels. Dated snapshot.">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-world/world-dark.svg?v=730b0a4d7d54">
+  <source media="(prefers-color-scheme: light)" srcset="assets/contribution-world/world-light.svg?v=8c36657e83f6">
+  <img src="assets/contribution-world/world-light.svg?v=8c36657e83f6" width="100%" alt="Contributions grouped into monthly panels. Each panel names its month range; daily 3D columns run left to right between the labelled start and end dates. Zero days are flat markers. Height follows real contribution counts on a logarithmic scale; cap colors follow GitHub activity levels. Dated snapshot.">
 </picture>
 
 </details>

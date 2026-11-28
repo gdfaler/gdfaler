@@ -55,38 +55,29 @@ class WorldTests(unittest.TestCase):
                 heights[count]=z
             self.assertEqual([heights[n] for n in sorted(heights)],sorted(set(heights.values())))
             labels=' '.join(e.text or '' for e in root.iter(ns+'text'))
-            self.assertIn('ACTIVE DAYS',labels)
-            self.assertIn('PEAK / DAY',labels)
+            self.assertIn('ONE COLUMN / ONE DAY',labels)
             self.assertNotIn('decorative trees',labels)
 
-    def test_calendar_axes_match_daily_positions(self):
+    def test_month_panels_preserve_every_date_and_count(self):
         data=w.demo();days=w.validate(data)
         root=ET.fromstring(w.render(data,'dark'))
-        origin=dt.date.fromisoformat(days[0]['date'])
-        origin-=dt.timedelta(days=(origin.weekday()+1)%7)
-        row_y={};week_x={}
-        for e in root.iter():
-            if 'data-date' not in e.attrib:continue
-            date=dt.date.fromisoformat(e.attrib['data-date'])
-            week=(date-origin).days//7;row=(date.weekday()+1)%7
-            self.assertEqual(int(e.attrib['data-week']),week)
-            self.assertEqual(int(e.attrib['data-weekday']),row)
-            x=float(e.attrib['data-x']);y=float(e.attrib['data-baseline'])
-            if row in row_y:self.assertEqual(row_y[row],y)
-            if week in week_x:self.assertEqual(week_x[week],x)
-            row_y[row]=y;week_x[week]=x
-        self.assertEqual(len(row_y),7)
-        self.assertEqual([row_y[r] for r in sorted(row_y)],sorted(row_y.values()))
-        self.assertEqual([week_x[k] for k in sorted(week_x)],sorted(week_x.values()))
-        labels=[e for e in root.iter() if e.attrib.get('class')=='weekday']
-        self.assertEqual([e.text for e in labels],['SUN','MON','TUE','WED','THU','FRI','SAT'])
-        months=[e for e in root.iter() if e.attrib.get('class')=='month']
-        starts=[int(e.attrib['data-start-week']) for e in months]
-        ends=[int(e.attrib['data-end-week']) for e in months]
-        self.assertEqual(starts[0],0)
-        self.assertEqual(ends[-1],max(week_x)+1)
-        self.assertEqual(ends[:-1],starts[1:])
-        self.assertTrue(all(a<b for a,b in zip(starts,ends)))
+        ns='{http://www.w3.org/2000/svg}'
+        panels=[e for e in root.iter() if e.attrib.get('class')=='month-panel']
+        self.assertLessEqual(len(panels),12)
+        observed=[]
+        expected={d['date']:d['contributionCount'] for d in days}
+        for panel in panels:
+            bars=[e for e in panel if 'data-date' in e.attrib]
+            dates=[e.attrib['data-date'] for e in bars]
+            self.assertEqual(panel.attrib['data-start'],dates[0])
+            self.assertEqual(panel.attrib['data-end'],dates[-1])
+            self.assertEqual(dates,sorted(dates))
+            self.assertEqual([int(e.attrib['data-day-index']) for e in bars],list(range(len(bars))))
+            total=sum(expected[date] for date in dates)
+            labels=[e.text for e in panel.findall(ns+'text')]
+            self.assertIn(f'{total} contributions',labels)
+            observed.extend(dates)
+        self.assertEqual(observed,[d['date'] for d in days])
 
     def test_zero_and_sparse_calendars(self):
         data=w.demo()

@@ -1,8 +1,8 @@
-# Contribution calendar preview
+# Monthly contribution preview
 
 The checked-in calendar is a real GitHub GraphQL snapshot for gdfaler. Both SVGs are generated from the same saved calendar; no demonstration data is used here.
 
-The slate-to-violet palette, grid, frame and typography match the profile showcase. A front-facing rectangular calendar replaces the diagonal projection. Weeks share a horizontal axis and seven weekday labels align to fixed rows. Month brackets use the exact week-column boundaries (boundary weeks can include days from two months). Active days are narrow 3D columns; zero days are flat outlined markers. Column height is limited to the space in each row so a bar cannot obscure the day above it. Height remains logarithmic in the actual count and cap colors follow the five GitHub activity levels. There are no terrain caps, vegetation, clouds or decorative towers. The small summary shows the actual count of active days and the maximum daily count. The subtle edge pulse is decorative and does not simulate data updates.
+The slate-to-violet palette, grid, frame and typography match the profile showcase. A maximum of twelve monthly panels replaces the large calendar grid. Each panel has its month or month range, actual contribution total, and exact first/last date. Days run left to right with one raised 3D column per active day and a flat marker per zero day. When the trailing year spans thirteen months, the first month fragment is combined with the next and both months are named. Every date is preserved exactly once. One shared logarithmic height scale applies to all panels; cap colors follow GitHub activity levels. There are no weekday axes or decorative terrain elements.
 
 Reproduce without network access:
 
