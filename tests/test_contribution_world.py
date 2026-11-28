@@ -39,6 +39,46 @@ class WorldTests(unittest.TestCase):
             self.assertEqual(svg,w.render(data,theme))
         self.assertNotEqual(w.render(data,'dark'),w.render(data,'light'))
 
+    def test_column_chart_has_real_bars_and_flat_zero_days(self):
+        data=w.demo()
+        for theme in ('dark','light'):
+            root=ET.fromstring(w.render(data,theme))
+            ns='{http://www.w3.org/2000/svg}'
+            bars=[e for e in root.iter() if 'data-date' in e.attrib]
+            heights={}
+            for bar in bars:
+                count=int(bar.attrib['data-count'])
+                z=float(bar.attrib['data-height'])
+                self.assertEqual(len(bar.findall(ns+'polygon')),3 if count else 1)
+                self.assertEqual(z==0,count==0)
+                if count in heights:self.assertEqual(z,heights[count])
+                heights[count]=z
+            self.assertEqual([heights[n] for n in sorted(heights)],sorted(set(heights.values())))
+            labels=' '.join(e.text or '' for e in root.iter(ns+'text'))
+            self.assertIn('ONE COLUMN / ONE DAY',labels)
+            self.assertNotIn('decorative trees',labels)
+
+    def test_month_panels_preserve_every_date_and_count(self):
+        data=w.demo();days=w.validate(data)
+        root=ET.fromstring(w.render(data,'dark'))
+        ns='{http://www.w3.org/2000/svg}'
+        panels=[e for e in root.iter() if e.attrib.get('class')=='month-panel']
+        self.assertLessEqual(len(panels),12)
+        observed=[]
+        expected={d['date']:d['contributionCount'] for d in days}
+        for panel in panels:
+            bars=[e for e in panel if 'data-date' in e.attrib]
+            dates=[e.attrib['data-date'] for e in bars]
+            self.assertEqual(panel.attrib['data-start'],dates[0])
+            self.assertEqual(panel.attrib['data-end'],dates[-1])
+            self.assertEqual(dates,sorted(dates))
+            self.assertEqual([int(e.attrib['data-day-index']) for e in bars],list(range(len(bars))))
+            total=sum(expected[date] for date in dates)
+            labels=[e.text for e in panel.findall(ns+'text')]
+            self.assertIn(f'{total} contributions',labels)
+            observed.extend(dates)
+        self.assertEqual(observed,[d['date'] for d in days])
+
     def test_zero_and_sparse_calendars(self):
         data=w.demo()
         for week in data['calendar']['weeks']:
@@ -69,7 +109,7 @@ class WorldTests(unittest.TestCase):
         request=call.call_args.args[0]; body=json.loads(request.data)
         self.assertIn('contributionCalendar',body['query'])
         self.assertEqual(body['variables']['from'],'2025-11-28T00:00:00Z')
-        self.assertIn('LIVE DATA',w.render(data,'dark'))
+        self.assertIn('GITHUB GRAPHQL · SNAPSHOT',w.render(data,'dark'))
         self.assertNotIn('SYNTHETIC DEMO',w.render(data,'dark'))
 
     def test_api_errors_and_retry(self):

@@ -1,161 +1,39 @@
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark-mobile.svg?v=be02ab1548ec">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/showcase/showcase-light-mobile.svg?v=dc5145b98df4">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark.svg?v=e1970bc4cda8">
+  <source media="(prefers-color-scheme: light)" srcset="assets/showcase/showcase-light.svg?v=d0603464889e">
+  <img src="assets/showcase/showcase-light.svg?v=d0603464889e" width="100%" alt="Egor, gdfaler. CS student at BMSTU. Animated schematics of DynamicIsland, HWMonitor and TorrentPlayer. Full text is available in About and projects below.">
+</picture>
 
-# Heya, I'm Egor
-
-CS student at BMSTU, interested in building things from scratch and figuring out what happens under the hood. I make native macOS apps, experiment with neural networks, and occasionally reinvent things that probably didn't need reinventing.
-
-Currently exploring systems programming, machine learning, and the macOS ecosystem. Mobile development might be next. We'll see what breaks first.
-
-## Achievements
-
-- **Winner** — City Energy — Into Action hackathon (*«Энергия города — в дело»*)
-- **Prize winner** — Moscow Pre-Professional Olympiad for Schoolchildren 2026, Research Track
-- **Prize winner** — RTU MIREA Multidisciplinary Olympiad 2026, Computer Science
-- **Yandex Lyceum** — Fundamentals of Python Programming (2025–2026)
-
-## Tech Stack
-
-<p>
-  <img src="https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=swift&logoColor=white" alt="Swift">
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C++">
+<p align="center">
+  <a href="https://github.com/gdfaler/DynamicIsland"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/showcase/link-dynamicisland-dark.svg?v=ff6022a20e9f"><img src="assets/showcase/link-dynamicisland-light.svg?v=2e04077a2420" height="28" alt="DynamicIsland repository"></picture></a>
+  <a href="https://github.com/gdfaler/HWMonitor"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/showcase/link-hwmonitor-dark.svg?v=9a2622b1384d"><img src="assets/showcase/link-hwmonitor-light.svg?v=75b83610f8c3" height="28" alt="HWMonitor repository"></picture></a>
+  <a href="https://github.com/gdfaler/TorrentPlayer"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/showcase/link-torrentplayer-dark.svg?v=98a4b65f58e6"><img src="assets/showcase/link-torrentplayer-light.svg?v=6ae0ec14cf0a" height="28" alt="TorrentPlayer repository"></picture></a>
+  <a href="https://github.com/gdfaler/ClipShot"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/showcase/link-clipshot-dark.svg?v=2f0f3f5a28bc"><img src="assets/showcase/link-clipshot-light.svg?v=3d62b7e5d185" height="28" alt="ClipShot repository"></picture></a>
 </p>
 
-## Featured Projects
+<details>
+<summary><samp>PROFILE / About &amp; projects</samp></summary>
 
-<table>
-<tr>
-<td width="33%" valign="top">
+I'm Egor, a CS student at BMSTU. I build native macOS apps and explore systems, graphics and machine learning with Swift, Java, Python and C++.
 
-<a href="https://github.com/gdfaler/HWMonitor"><img src="https://raw.githubusercontent.com/gdfaler/HWMonitor/main/docs/social-preview.png" alt="HWMonitor"></a>
+- **[DynamicIsland](https://github.com/gdfaler/DynamicIsland)** — music, timers and alerts around the MacBook notch.
+- **[HWMonitor](https://github.com/gdfaler/HWMonitor)** — temperatures, power and processes on Apple Silicon Macs.
+- **[TorrentPlayer](https://github.com/gdfaler/TorrentPlayer)** — local video playback and BitTorrent streaming. Early MVP.
+- **[ClipShot](https://github.com/gdfaler/ClipShot)** — screen, window or region screenshots, straight to the clipboard.
 
-### [HWMonitor](https://github.com/gdfaler/HWMonitor)
+Also: [a Java voxel engine](https://github.com/gdfaler/MineAndCraft) and [a small transformer from scratch](https://github.com/gdfaler/gdf_ai).
 
-A macOS utility for digging into what your Mac is actually doing. Reads 115 temperature sensors, tracks per-core frequencies and power consumption, and can help reduce thermal load by moving heavy background apps to efficiency cores.
+</details>
 
-Same workload, temperatures from 92–101 °C down to around 50 °C in my tests. Your MacBook might finally stop auditioning for a space heater.
+<details>
+<summary><samp>ACTIVITY / Contributions</samp></summary>
 
-**Swift · SwiftUI · SMC · IOReport**
-
-[Repository](https://github.com/gdfaler/HWMonitor) · [Releases](https://github.com/gdfaler/HWMonitor/releases)
-
-</td>
-<td width="33%" valign="top">
-
-<a href="https://github.com/gdfaler/DynamicIsland"><img src="https://raw.githubusercontent.com/gdfaler/DynamicIsland/main/assets/social-preview.png" alt="DynamicIsland"></a>
-
-### [DynamicIsland](https://github.com/gdfaler/DynamicIsland)
-
-Makes the MacBook notch useful: now-playing info from Music, Spotify, and Safari, an audio visualizer driven by actual sound, timers, and alerts for charging, volume, and headphones. No private APIs.
-
-Because if your MacBook already has a notch, it might as well earn its keep.
-
-**Swift · SwiftUI · ScreenCaptureKit · vDSP**
-
-[Repository](https://github.com/gdfaler/DynamicIsland) · [Releases](https://github.com/gdfaler/DynamicIsland/releases)
-
-</td>
-<td width="33%" valign="top">
-
-<a href="https://github.com/gdfaler/ClipShot"><img src="https://raw.githubusercontent.com/gdfaler/ClipShot/main/docs/social-preview.png" alt="ClipShot"></a>
-
-### [ClipShot](https://github.com/gdfaler/ClipShot)
-
-A tiny native macOS menu bar app that sends screenshots straight to the clipboard. Capture a screen, window, or region using keyboard shortcuts, without leaving a pile of PNGs on your desktop.
-
-Under 900 lines of Swift. Sometimes the best feature is not creating another problem.
-
-**Swift · AppKit**
-
-[Repository](https://github.com/gdfaler/ClipShot) · [Releases](https://github.com/gdfaler/ClipShot/releases)
-
-</td>
-</tr>
-</table>
-
-All three are native Swift apps with zero external dependencies and build with a single script. No full Xcode install needed.
-
-## More Projects
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### [GDF AI](https://github.com/gdfaler/gdf_ai)
-
-My own tiny ChatGPT-like project: a LLaMA-style transformer built from scratch, with its own tokenizer and a web chat. It's trained on about 30 KB of text, so it isn't exactly the next GPT-5.
-
-But hey, gotta start somewhere.
-
-**Python · PyTorch · Flask**
-
-</td>
-<td width="50%" valign="top">
-
-### [MineAndCraft](https://github.com/gdfaler/MineAndCraft)
-
-Minecraft-inspired voxel game with a custom engine, procedural terrain, caves, ores, and forests, streamed in chunks on background threads. No game engine, just Java and OpenGL.
-
-Mojang, please don't sue.
-
-**Java · LWJGL · OpenGL · 60 tests**
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [Five Nights On Your Own](https://github.com/gdfaler/FiveNightOnYourOwn)
-
-FNaF, except Freddy is literally the letter F. Cameras, doors, lights, power, and six nights, all drawn in ASCII inside a window pretending to be an old terminal.
-
-**Java · JavaFX**
-
-</td>
-<td width="50%" valign="top">
-
-### [Vneurochka](https://github.com/gdfaler/vneurochka2025)
-
-An Android app for school clubs, with accounts, user search, and chat. Built with a teammate for the 2025 "Potential" competition.
-
-**Java · Android · Firebase**
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [arraylib](https://github.com/gdfaler/arraylib)
-
-A C++ library for calculating array sums, averages, and medians. Comes with CMake, unit tests, integration tests, and CI.
-
-Overkill? Absolutely.
-
-**C++17 · CMake · CTest**
-
-</td>
-<td width="50%" valign="top">
-
-### What's next?
-
-Exploring new ideas, learning how systems work, and building more things that start as "this should be pretty simple".
-
-Famous last words.
-
-</td>
-</tr>
-</table>
-
----
-
-`loop. fail. upgrade. repeat.`
-
-
-## My Contribution World
-
-<!-- Add this block to your profile README after the first successful workflow run. -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-light.svg">
-  <img alt="My Contribution World: one voxel per day, height and terrain color reflect GitHub contribution activity" src="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-world/world-dark.svg?v=730b0a4d7d54">
+  <source media="(prefers-color-scheme: light)" srcset="assets/contribution-world/world-light.svg?v=8c36657e83f6">
+  <img src="assets/contribution-world/world-light.svg?v=8c36657e83f6" width="100%" alt="Contributions grouped into monthly panels. Each panel names its month range; daily 3D columns run left to right between the labelled start and end dates. Zero days are flat markers. Height follows real contribution counts on a logarithmic scale; cap colors follow GitHub activity levels. Dated snapshot.">
 </picture>
+
+</details>
