@@ -9,10 +9,10 @@ The four scenes show:
 3. HWMonitor: a capability diagram for temperatures, power, processes and frequency.
 4. TorrentPlayer: a schematic of BitTorrent pieces, buffering and playback, labelled as an early MVP.
 
-Motion is coordinated across the 40-second cycle (7s identity, 19s DynamicIsland, 7s HWMonitor, 7s TorrentPlayer):
+Motion is coordinated across the 24-second cycle (5s identity, 9s DynamicIsland, 5s HWMonitor, 5s TorrentPlayer):
 
 - Identity: name reveal, staggered facts, traced laptop outline, full-screen glass shading and a broad clipped diagonal reflection and app icon entrances.
-- DynamicIsland: equal six-second slots for music, timer and alert modes. Each mode stays fully visible for 3.95 seconds, with the same reveal/fade timing and space for expansion/contraction. Content fades in only after expansion and fades out before contraction.
+- DynamicIsland: equal 2.8-second slots for music, timer and alert modes. Each mode stays fully visible for 1.5 seconds, with the same reveal/fade timing and space for expansion/contraction. Content fades in only after expansion and fades out before contraction.
 - HWMonitor: packets follow the diagram connections into the app, with polling highlights and a processor pulse.
 - TorrentPlayer: incoming pieces, a shifting buffer, outgoing packets and moving schematic video frames.
 

@@ -1,9 +1,9 @@
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark-mobile.svg?v=c4f36b2ba30b">
-  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/showcase/showcase-light-mobile.svg?v=e4a37266c97f">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark.svg?v=9be0bceb0722">
-  <source media="(prefers-color-scheme: light)" srcset="assets/showcase/showcase-light.svg?v=a9ffb5e8f8c1">
-  <img src="assets/showcase/showcase-light.svg?v=a9ffb5e8f8c1" width="100%" alt="Egor, gdfaler. CS student at BMSTU. Animated schematics of DynamicIsland, HWMonitor and TorrentPlayer. Full text is available in About and projects below.">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark-mobile.svg?v=be02ab1548ec">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/showcase/showcase-light-mobile.svg?v=dc5145b98df4">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark.svg?v=e1970bc4cda8">
+  <source media="(prefers-color-scheme: light)" srcset="assets/showcase/showcase-light.svg?v=d0603464889e">
+  <img src="assets/showcase/showcase-light.svg?v=d0603464889e" width="100%" alt="Egor, gdfaler. CS student at BMSTU. Animated schematics of DynamicIsland, HWMonitor and TorrentPlayer. Full text is available in About and projects below.">
 </picture>
 
 <p align="center">

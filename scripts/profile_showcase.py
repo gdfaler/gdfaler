@@ -6,7 +6,7 @@ import html
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SCENE_STARTS = (0, 7, 26, 33)
+SCENE_STARTS = (0, 5, 14, 19)
 
 
 def text(x, y, value, size=14, cls='', extra=''):
@@ -187,35 +187,35 @@ text{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:var(-
 .muted{fill:var(--muted)}.accent{fill:var(--accent)}.background{fill:var(--bg)}.panel{fill:var(--panel)}
 .outline{fill:var(--panel);stroke:var(--line);stroke-width:1.2}.line{stroke:var(--line)}.accent-stroke{stroke:var(--accent)}
 .light{fill:#e8eaf2}.light-stroke{stroke:#e8eaf2}.notch,.island{fill:#07090f}.island{stroke:#665b9d;stroke-width:1.3}
-.scene{opacity:0;animation:scene 40s ease-in-out infinite}.s0{opacity:1}.s1{animation-name:scene-island;animation-delay:7s}.s2{animation-delay:26s}.s3{animation-delay:33s}
-@keyframes scene{0%{opacity:0;transform:translateY(4px)}1.5%,16%{opacity:1;transform:translateY(0)}17.5%,100%{opacity:0;transform:translateY(-4px)}}
-@keyframes scene-island{0%{opacity:0;transform:translateY(4px)}1.5%,46%{opacity:1;transform:translateY(0)}47.5%,100%{opacity:0;transform:translateY(-4px)}}
-.chapter-progress{stroke-dasharray:1;animation:chapter 40s linear infinite}
-@keyframes chapter{0%{stroke-dashoffset:1}17.5%,100%{stroke-dashoffset:0}}
-.island-progress{animation-name:chapter-island}@keyframes chapter-island{0%{stroke-dashoffset:1}47.5%,100%{stroke-dashoffset:0}}
-/* All entrance sequences share the 40-second scene clock, so they replay on every loop. */
-.intro-kicker,.intro-subtitle,.intro-fact{animation:intro-reveal 40s ease both infinite}
+.scene{opacity:0;animation:scene 24s ease-in-out infinite}.s0{opacity:1}.s1{animation-name:scene-island;animation-delay:5s}.s2{animation-delay:14s}.s3{animation-delay:19s}
+@keyframes scene{0%{opacity:0;transform:translateY(4px)}1.666667%,19.166667%{opacity:1;transform:translateY(0)}20.833333%,100%{opacity:0;transform:translateY(-4px)}}
+@keyframes scene-island{0%{opacity:0;transform:translateY(4px)}1.666667%,35.833333%{opacity:1;transform:translateY(0)}37.5%,100%{opacity:0;transform:translateY(-4px)}}
+.chapter-progress{stroke-dasharray:1;animation:chapter 24s linear infinite}
+@keyframes chapter{0%{stroke-dashoffset:1}20.833333%,100%{stroke-dashoffset:0}}
+.island-progress{animation-name:chapter-island}@keyframes chapter-island{0%{stroke-dashoffset:1}37.5%,100%{stroke-dashoffset:0}}
+/* All entrance sequences share the 24-second scene clock, so they replay on every loop. */
+.intro-kicker,.intro-subtitle,.intro-fact{animation:intro-reveal 24s ease both infinite}
 .intro-subtitle{animation-delay:.22s}
-@keyframes intro-reveal{0%,1.4%{opacity:0;transform:translateY(10px)}3.5%,16.1%{opacity:1;transform:translateY(0)}17.5%,100%{opacity:0;transform:translateY(-3px)}}
-.name-mask{animation:name-type 40s cubic-bezier(.22,.61,.36,1) infinite}
-@keyframes name-type{0%,0.7%{width:0;opacity:0;transform:translateY(6px)}5.6%,16.8%{width:230px;opacity:1;transform:translateY(0)}17.5%,100%{width:0;opacity:0}}
-.intro-trace,.intro-rule,.intro-wire{stroke-dasharray:1;animation:trace 40s ease both infinite}
-@keyframes trace{0%,0.7%{stroke-dashoffset:1}5.6%,16.8%{stroke-dashoffset:0}17.5%,100%{stroke-dashoffset:1}}
-.intro-laptop{animation:laptop-assemble 40s cubic-bezier(.2,.7,.2,1) both infinite;animation-delay:.1s;transform-box:fill-box;transform-origin:center}
-@keyframes laptop-assemble{0%,1.4%{opacity:0;transform:translateY(22px) scale(.94)}4.2%,16.8%{opacity:1;transform:translateY(0) scale(1)}17.5%,100%{opacity:0;transform:translateY(0) scale(1)}}
-.intro-screen-sheen{animation:screen-sheen 7s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes intro-reveal{0.000000%,2.333333%{opacity:0;transform:translateY(10px)}5.833333%,19.666667%{opacity:1;transform:translateY(0)}20.833333%,100%{opacity:0;transform:translateY(-3px)}}
+.name-mask{animation:name-type 24s cubic-bezier(.22,.61,.36,1) infinite}
+@keyframes name-type{0.000000%,1.166667%{width:0;opacity:0;transform:translateY(6px)}9.333333%,20.250000%{width:230px;opacity:1;transform:translateY(0)}20.833333%,100%{width:0;opacity:0}}
+.intro-trace,.intro-rule,.intro-wire{stroke-dasharray:1;animation:trace 24s ease both infinite}
+@keyframes trace{0.000000%,1.166667%{stroke-dashoffset:1}9.333333%,20.250000%{stroke-dashoffset:0}20.833333%,100%{stroke-dashoffset:1}}
+.intro-laptop{animation:laptop-assemble 24s cubic-bezier(.2,.7,.2,1) both infinite;animation-delay:.1s;transform-box:fill-box;transform-origin:center}
+@keyframes laptop-assemble{0.000000%,2.333333%{opacity:0;transform:translateY(22px) scale(.94)}7.000000%,20.250000%{opacity:1;transform:translateY(0) scale(1)}20.833333%,100%{opacity:0;transform:translateY(0) scale(1)}}
+.intro-screen-sheen{animation:screen-sheen 5s cubic-bezier(.4,0,.2,1) infinite}
 @keyframes screen-sheen{0%,12%{transform:translateX(0);opacity:0}25%{opacity:1}85%{transform:translateX(var(--sheen-travel));opacity:.3}100%{transform:translateX(var(--sheen-travel));opacity:0}}
-.intro-app{animation:app-arrive 40s cubic-bezier(.16,.9,.25,1) both infinite;transform-box:fill-box;transform-origin:center}
-@keyframes app-arrive{0%,1.4%{opacity:0;transform:translateY(10px) scale(.94)}5.6%,16.8%{opacity:1;transform:translateY(0) scale(1)}17.5%,100%{opacity:0;transform:translateY(0) scale(1)}}
+.intro-app{animation:app-arrive 24s cubic-bezier(.16,.9,.25,1) both infinite;transform-box:fill-box;transform-origin:center}
+@keyframes app-arrive{0.000000%,2.333333%{opacity:0;transform:translateY(10px) scale(.94)}9.333333%,20.250000%{opacity:1;transform:translateY(0) scale(1)}20.833333%,100%{opacity:0;transform:translateY(0) scale(1)}}
 .app-float{animation:app-float 3.8s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
 @keyframes app-float{to{transform:translateY(1.5px)}}
 /* The notch contracts between three actual feature modes rather than just crossfading text. */
-.island-shell{transform-box:fill-box;transform-origin:50% 0;animation:notch-morph 40s cubic-bezier(.4,0,.15,1) 7s both infinite}
-@keyframes notch-morph{0%,45%,100%{transform:scale(var(--compact-x),.25)}1.5%,13.625%{transform:scale(1,1)}15%{transform:scale(var(--compact-x),.25)}16.5%,28.625%{transform:scale(.86,1)}30%{transform:scale(var(--compact-x),.25)}31.5%,43.625%{transform:scale(.9,.65)}}
-.music-mode,.timer-mode,.alert-mode{opacity:0;animation:feature-mode 40s ease both infinite}
-.music-mode{animation-delay:7s}.timer-mode{animation-delay:13s}.alert-mode{animation-delay:19s}
-/* Each slot: expand .6s, wait .2s, reveal .35s, hold 3.95s, fade .35s, contract .55s. */
-@keyframes feature-mode{0%,2%{opacity:0;transform:translateY(3px)}2.875%,12.75%{opacity:1;transform:translateY(0)}13.625%,100%{opacity:0;transform:translateY(-2px)}}
+.island-shell{transform-box:fill-box;transform-origin:50% 0;animation:notch-morph 24s cubic-bezier(.4,0,.15,1) 5s both infinite}
+@keyframes notch-morph{0%,11.458333%,11.666667%,23.125%,23.333333%,34.791667%,100%{transform:scale(var(--compact-x),.25)}1.458333%,9.791667%{transform:scale(1,1)}13.125%,21.458333%{transform:scale(.86,1)}24.791667%,33.125%{transform:scale(.9,.65)}}
+.music-mode,.timer-mode,.alert-mode{opacity:0;animation:feature-mode 24s ease both infinite}
+.music-mode{animation-delay:5s}.timer-mode{animation-delay:7.8s}.alert-mode{animation-delay:10.6s}
+/* Equal 2.8s slots: expand .35s, wait .1s, reveal .2s, hold 1.5s, fade .2s, contract .4s, rest .05s. */
+@keyframes feature-mode{0%,1.875%{opacity:0;transform:translateY(3px)}2.708333%,8.958333%{opacity:1;transform:translateY(0)}9.791667%,100%{opacity:0;transform:translateY(-2px)}}
 .equalizer{transform-box:fill-box;transform-origin:bottom;animation:eq .6s ease-in-out infinite alternate}.q1{animation-delay:-.2s}.q2{animation-delay:-.4s}
 @keyframes eq{to{transform:scaleY(.2)}}.timer-ring{transform-box:fill-box;transform-origin:center;animation:turn 2.4s linear infinite}@keyframes turn{to{transform:rotate(360deg)}}
 /* Packets follow the real connection paths in the schematic; no telemetry values are displayed. */
