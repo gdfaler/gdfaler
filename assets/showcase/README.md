@@ -11,8 +11,8 @@ The four scenes show:
 
 Motion is coordinated across the 28-second cycle:
 
-- Identity: name reveal, staggered facts, traced laptop outline, scanning highlight and app icon entrances.
-- DynamicIsland: contraction and expansion between music, timer and alert modes.
+- Identity: name reveal, staggered facts, traced laptop outline, clipped diagonal glass reflection and app icon entrances.
+- DynamicIsland: contraction and expansion between music, timer and alert modes. Content fades in only after expansion and fades out before contraction.
 - HWMonitor: packets follow the diagram connections into the app, with polling highlights and a processor pulse.
 - TorrentPlayer: incoming pieces, a shifting buffer, outgoing packets and moving schematic video frames.
 

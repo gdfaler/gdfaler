@@ -45,7 +45,7 @@ def render(theme, mobile=False, appdir=None):
             bar+=f'<path d="{d}" stroke="{line}" stroke-width="2"/>'
             if j==index:
                 bar+=f'<path class="chapter-progress" d="{d}" pathLength="1" stroke="{accent}" stroke-width="2" style="animation-delay:{index*7}s"/>'
-        return f'<g class="scene s{index}">{body}{bar}'+text(28,h-17,footer,10,'mono muted')+'</g>'
+        return f'<g class="scene s{index}">{body}{bar}'+text(44,h-18,footer,9 if mobile else 10,'mono muted')+'</g>'
 
     body = rect(.5,.5,w-1,h-1,16,'background')
     body += '<rect x="18" y="52" width="'+str(w-36)+'" height="'+str(h-110)+'" fill="url(#grid)" opacity=".35"/>'
@@ -74,14 +74,15 @@ def render(theme, mobile=False, appdir=None):
     identity+='<g class="intro-laptop">'
     identity+=rect(lx,ly,lw,lh,9,'outline intro-trace','pathLength="1"')+rect(lx+lw*.33,ly,lw*.34,13,5,'notch')
     identity+=path(f'M{lx-12} {ly+lh+8}h{lw+24}l-10 8h-{lw+4}z','line intro-trace','pathLength="1"')
-    identity+=f'<g opacity=".6"><path class="intro-screen-scan" d="M{lx+12} {ly+17}h{lw-24}" stroke="{accent}" stroke-width="1" style="--scan-depth:{lh-34}px"/></g>'
+    identity+=f'<defs><clipPath id="screen-glass"><rect x="{lx+3}" y="{ly+15}" width="{lw-6}" height="{lh-18}" rx="6"/></clipPath><linearGradient id="glass-sheen"><stop offset="0" stop-color="{fg}" stop-opacity="0"/><stop offset=".48" stop-color="{fg}" stop-opacity=".035"/><stop offset=".6" stop-color="{fg}" stop-opacity=".12"/><stop offset="1" stop-color="{fg}" stop-opacity="0"/></linearGradient></defs>'
+    identity+=f'<g clip-path="url(#screen-glass)"><path class="intro-screen-sheen" d="M{lx-lw} {ly}h{lw*.6}l-{lh*.5} {lh}h-{lw*.6}z" fill="url(#glass-sheen)" style="--sheen-travel:{lw*2.7}px"/></g>'
     identity+='</g>'
     if not mobile:
         for i in range(3):
-            tx=655+i*72
-            identity+=path(f'M{lx+lw/2} {ly+lh+16}v10H{tx}v6','line intro-wire','pathLength="1"')
+            tx=658+i*72
+            identity+=path(f'M{lx+lw/2} {ly+lh+16}v4H{tx}v5','line intro-wire','pathLength="1"')
     for i,name in enumerate(('dynamic-island','hwmonitor','clipshot')):
-        identity+=f'<g class="intro-app" style="animation-delay:{.7+i*.22:.2f}s"><g class="app-float" style="animation-delay:-{i*.65:.2f}s">'+icon(name,(147 if mobile else 635)+i*(48 if mobile else 72),552 if mobile else 349,29 if mobile else 40)+'</g></g>'
+        identity+=f'<g class="intro-app" style="animation-delay:{.7+i*.22:.2f}s"><g class="app-float" style="animation-delay:-{i*.65:.2f}s">'+icon(name,(147.5 if mobile else 638)+i*(48 if mobile else 72),552 if mobile else 349,29 if mobile else 40)+'</g></g>'
     body+=frame(0,identity,'Egor / CS student at BMSTU')
 
     # DynamicIsland: schematic of real functions, without fictitious media metadata.
@@ -117,7 +118,7 @@ def render(theme, mobile=False, appdir=None):
 
     # HWMonitor: interfaces and capabilities only, never sample temperatures or rates.
     stage=heading(2,'HWMonitor',['A closer look at', 'Apple Silicon.'] if mobile else ['A closer look at Apple Silicon.'])
-    cx,cy=(210,309) if mobile else (319,290)
+    cx,cy=(210,309) if mobile else (334,290)
     core=112 if mobile else 136
     stage+=rect(cx-core/2-9,cy-core/2-9,core+18,core+18,14,'core-halo')
     stage+='<g class="hw-core">'+rect(cx-core/2,cy-core/2,core,core,9,'outline')
@@ -167,7 +168,7 @@ def render(theme, mobile=False, appdir=None):
         stage+=path(f'M{ax} {ay}H{end}m-5-4 5 4-5 4','accent-stroke','stroke-width="1.3"')
         for packet in range(2 if mobile else 3):
             stage+=f'<rect class="stream-packet" x="-3" y="-3" width="6" height="6" rx="1.5" fill="{green}" style="offset-path:path(\'M{ax} {ay}H{end}\');animation-delay:-{packet*.62:.2f}s"/>'
-    for tx,label in [(px,'pieces'),(bx,'buffer'),(vx,'playback')]:stage+=text(tx,358 if mobile else 365,label,11,'mono muted')
+    for tx,label in [(px+(step*3+step-5)/2,'pieces'),(bx+bw/2,'buffer'),(vx+vw/2,'playback')]:stage+=text(tx,358 if mobile else 365,label,11,'mono muted','text-anchor="middle"')
     if mobile:
         stage+=text(28,450,'Swift / AppKit / C++',13,'mono')
         stage+=text(28,481,'libtorrent / mpv',13,'mono muted')
@@ -176,7 +177,7 @@ def render(theme, mobile=False, appdir=None):
         stage+=text(660,186,'NATIVE PLAYER',11,'mono muted')
         stage+=text(660,232,'Swift / AppKit',13,'mono')+text(660,270,'C++ / libtorrent',13,'mono')+text(660,308,'mpv playback',13,'mono')
         stage+=text(660,377,'EARLY MVP',11,'mono accent','letter-spacing="2"')
-    body+=frame(3,stage,'TorrentPlayer / streaming architecture · early MVP')
+    body+=frame(3,stage,'TorrentPlayer / streaming · early MVP' if mobile else 'TorrentPlayer / streaming architecture · early MVP')
 
     css = f':root{{--fg:{fg};--muted:{muted};--line:{line};--accent:{accent};--panel:{panel};--bg:{bg}}}' + '''
 text{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:var(--fg)}
@@ -184,33 +185,33 @@ text{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:var(-
 .muted{fill:var(--muted)}.accent{fill:var(--accent)}.background{fill:var(--bg)}.panel{fill:var(--panel)}
 .outline{fill:var(--panel);stroke:var(--line);stroke-width:1.2}.line{stroke:var(--line)}.accent-stroke{stroke:var(--accent)}
 .light{fill:#e8eaf2}.light-stroke{stroke:#e8eaf2}.notch,.island{fill:#07090f}.island{stroke:#665b9d;stroke-width:1.3}
-.scene{opacity:0;animation:scene 28s linear infinite}.s0{opacity:1}.s1{animation-delay:7s}.s2{animation-delay:14s}.s3{animation-delay:21s}
-@keyframes scene{0%{opacity:0;transform:translateY(8px)}2%,22%{opacity:1;transform:translateY(0)}25%,100%{opacity:0;transform:translateY(-6px)}}
+.scene{opacity:0;animation:scene 28s ease-in-out infinite}.s0{opacity:1}.s1{animation-delay:7s}.s2{animation-delay:14s}.s3{animation-delay:21s}
+@keyframes scene{0%{opacity:0;transform:translateY(4px)}3%,21.5%{opacity:1;transform:translateY(0)}25%,100%{opacity:0;transform:translateY(-4px)}}
 .chapter-progress{stroke-dasharray:1;animation:chapter 28s linear infinite}
 @keyframes chapter{0%{stroke-dashoffset:1}25%,100%{stroke-dashoffset:0}}
 /* All entrance sequences share the 28-second scene clock, so they replay on every loop. */
 .intro-kicker,.intro-subtitle,.intro-fact{animation:intro-reveal 28s ease both infinite}
 .intro-subtitle{animation-delay:.22s}
 @keyframes intro-reveal{0%,2%{opacity:0;transform:translateY(10px)}5%,23%{opacity:1;transform:translateY(0)}25%,100%{opacity:0;transform:translateY(-3px)}}
-.name-mask{animation:name-type 28s steps(4,end) infinite}
-@keyframes name-type{0%,1%{width:0}6%,24%{width:230px}25%,100%{width:0}}
+.name-mask{animation:name-type 28s cubic-bezier(.22,.61,.36,1) infinite}
+@keyframes name-type{0%,1%{width:0;opacity:0;transform:translateY(6px)}8%,24%{width:230px;opacity:1;transform:translateY(0)}25%,100%{width:0;opacity:0}}
 .intro-trace,.intro-rule,.intro-wire{stroke-dasharray:1;animation:trace 28s ease both infinite}
 @keyframes trace{0%,1%{stroke-dashoffset:1}8%,24%{stroke-dashoffset:0}25%,100%{stroke-dashoffset:1}}
 .intro-laptop{animation:laptop-assemble 28s cubic-bezier(.2,.7,.2,1) both infinite;animation-delay:.1s;transform-box:fill-box;transform-origin:center}
 @keyframes laptop-assemble{0%,2%{opacity:0;transform:translateY(22px) scale(.94)}6%,24%{opacity:1;transform:translateY(0) scale(1)}25%,100%{opacity:0;transform:translateY(0) scale(1)}}
-.intro-screen-scan{animation:screen-scan 2.6s ease-in-out infinite}
-@keyframes screen-scan{0%,100%{transform:translateY(0);opacity:0}15%,75%{opacity:.7}90%{transform:translateY(var(--scan-depth));opacity:0}}
+.intro-screen-sheen{animation:screen-sheen 7s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes screen-sheen{0%,18%{transform:translateX(0);opacity:0}28%{opacity:1}75%{transform:translateX(var(--sheen-travel));opacity:0}100%{transform:translateX(var(--sheen-travel));opacity:0}}
 .intro-app{animation:app-arrive 28s cubic-bezier(.16,.9,.25,1) both infinite;transform-box:fill-box;transform-origin:center}
-@keyframes app-arrive{0%,2%{opacity:0;transform:translateY(28px) scale(.6) rotate(-9deg)}6%{opacity:1;transform:translateY(-3px) scale(1.04) rotate(1deg)}8%,24%{opacity:1;transform:translateY(0) scale(1) rotate(0)}25%,100%{opacity:0;transform:translateY(0) scale(1)}}
+@keyframes app-arrive{0%,2%{opacity:0;transform:translateY(10px) scale(.94)}8%,24%{opacity:1;transform:translateY(0) scale(1)}25%,100%{opacity:0;transform:translateY(0) scale(1)}}
 .app-float{animation:app-float 3.8s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
-@keyframes app-float{to{transform:translateY(-3px) rotate(2deg)}}
+@keyframes app-float{to{transform:translateY(1.5px)}}
 /* The notch contracts between three actual feature modes rather than just crossfading text. */
 .island-shell{transform-box:fill-box;transform-origin:50% 0;animation:notch-morph 7s cubic-bezier(.4,0,.15,1) infinite}
-@keyframes notch-morph{0%,100%{transform:scale(.36,.25)}14%,40%{transform:scale(1,1)}47%,75%{transform:scale(.36,.25)}54%,68%{transform:scale(.86,1)}82%,94%{transform:scale(.9,.65)}}
+@keyframes notch-morph{0%,4%,100%{transform:scale(.36,.25)}14%,34%{transform:scale(1,1)}41%,45%{transform:scale(.36,.25)}52%,69%{transform:scale(.86,1)}76%,78%{transform:scale(.36,.25)}85%,97%{transform:scale(.9,.65)}}
 .music-mode{animation:music 7s ease infinite}.timer-mode{opacity:0;animation:timer 7s ease infinite}.alert-mode{opacity:0;animation:alert 7s ease infinite}
-@keyframes music{0%,9%{opacity:0;transform:translateY(6px)}15%,40%{opacity:1;transform:translateY(0)}44%,100%{opacity:0;transform:translateY(-4px)}}
-@keyframes timer{0%,47%{opacity:0;transform:translateY(6px)}54%,68%{opacity:1;transform:translateY(0)}72%,100%{opacity:0;transform:translateY(-4px)}}
-@keyframes alert{0%,74%{opacity:0;transform:translateY(6px)}81%,91%{opacity:1;transform:translateY(0)}96%,100%{opacity:0;transform:translateY(-3px)}}
+@keyframes music{0%,15%{opacity:0;transform:translateY(3px)}21%,29%{opacity:1;transform:translateY(0)}34%,100%{opacity:0;transform:translateY(-2px)}}
+@keyframes timer{0%,53%{opacity:0;transform:translateY(3px)}58%,64%{opacity:1;transform:translateY(0)}69%,100%{opacity:0;transform:translateY(-2px)}}
+@keyframes alert{0%,86%{opacity:0;transform:translateY(3px)}90%,93%{opacity:1;transform:translateY(0)}97%,100%{opacity:0;transform:translateY(-2px)}}
 .equalizer{transform-box:fill-box;transform-origin:bottom;animation:eq .6s ease-in-out infinite alternate}.q1{animation-delay:-.2s}.q2{animation-delay:-.4s}
 @keyframes eq{to{transform:scaleY(.2)}}.timer-ring{transform-box:fill-box;transform-origin:center;animation:turn 2.4s linear infinite}@keyframes turn{to{transform:rotate(360deg)}}
 /* Packets follow the real connection paths in the schematic; no telemetry values are displayed. */
@@ -231,8 +232,8 @@ text{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:var(-
 @media(prefers-reduced-motion:reduce){
 *{animation:none!important}.scene{opacity:0;transform:none}.s0{opacity:1}
 .intro-kicker,.intro-subtitle,.intro-fact,.intro-laptop,.intro-app{opacity:1!important;transform:none!important}
-.name-mask{width:230px!important}.intro-trace,.intro-rule,.intro-wire,.chapter-progress{stroke-dashoffset:0!important}
-.intro-screen-scan,.bus-packet,.stream-packet,.core-halo{display:none}
+.name-mask{width:230px!important;opacity:1!important;transform:none!important}.intro-trace,.intro-rule,.intro-wire,.chapter-progress{stroke-dashoffset:0!important}
+.intro-screen-sheen,.bus-packet,.stream-packet,.core-halo{display:none}
 }
 '''
     desc='Egor, gdfaler. CS student at BMSTU. Native macOS apps, systems, graphics and machine learning. Cycles through identity and original schematic illustrations of DynamicIsland, HWMonitor and TorrentPlayer. These illustrate application capabilities, not live measurements. TorrentPlayer is an early MVP. Full text and project links are below the image.'
@@ -242,8 +243,8 @@ text{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:var(-
 
 def badge(name, theme):
     width = 24 + len(name) * 7.2
-    bg, fg, line = ('#141924','#c9c3f4','#3d4358') if theme=='dark' else ('#eceef6','#4e4780','#bfc6da')
-    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{width:.1f}" height="28" viewBox="0 0 {width:.1f} 28" role="img" aria-labelledby="title"><title id="title">{html.escape(name)} repository</title><rect x=".5" y=".5" width="{width-1:.1f}" height="27" rx="5" fill="{bg}" stroke="{line}"/><text x="12" y="18" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" fill="{fg}">{html.escape(name)}</text></svg>'
+    bg, fg, line = ('#0d1017','#a69bf7','#30384b') if theme=='dark' else ('#f4f5fa','#6756b3','#bfc9dc')
+    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{width:.1f}" height="28" viewBox="0 0 {width:.1f} 28" role="img" aria-labelledby="title"><title id="title">{html.escape(name)} repository</title><rect x=".5" y=".5" width="{width-1:.1f}" height="27" rx="7" fill="{bg}" stroke="{line}"/><text x="12" y="18" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" fill="{fg}">{html.escape(name)}</text></svg>'
 
 def generate(out,appdir=None):
     files={f'showcase-{theme}{"-mobile" if mobile else ""}.svg':render(theme,mobile,appdir) for theme in ('dark','light') for mobile in (False,True)}
