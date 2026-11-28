@@ -1,0 +1,179 @@
+#!/usr/bin/env python3
+"""Render the self-contained profile showcase. No network or live metrics."""
+import argparse
+import base64
+import html
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def text(x, y, value, size=14, cls='', extra=''):
+    return f'<text x="{x}" y="{y}" font-size="{size}" class="{cls}" {extra}>{html.escape(str(value))}</text>'
+
+
+def image_uri(appdir, name):
+    raw = (appdir / name).read_bytes()
+    if not raw.startswith(b'\x89PNG\r\n\x1a\n'):
+        raise ValueError('Expected a PNG app icon: ' + name)
+    return 'data:image/png;base64,' + base64.b64encode(raw).decode('ascii')
+
+
+def render(theme, mobile=False, appdir=None):
+    appdir = appdir or ROOT / 'assets/apps'
+    icons = {name: image_uri(appdir, name + '.png') for name in ('dynamic-island', 'hwmonitor', 'clipshot')}
+    w, h = (420, 620) if mobile else (900, 500)
+    dark = theme == 'dark'
+    bg, panel, fg, muted, line, accent, green = (
+        ('#0d1017', '#141924', '#e8eaf2', '#9aa4b8', '#30384b', '#a69bf7', '#86c7ae') if dark else
+        ('#f4f5fa', '#e9edf5', '#202638', '#59677b', '#bfc9dc', '#6756b3', '#26715a'))
+    def rect(x,y,width,height,rx=8,cls='panel',extra=''):
+        return f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="{rx}" class="{cls}" {extra}/>'
+    def icon(name,x,y,size):
+        return f'<image href="{icons[name]}" x="{x}" y="{y}" width="{size}" height="{size}"/>'
+    def path(d,cls='line',extra=''):
+        return f'<path d="{d}" class="{cls}" fill="none" {extra}/>'
+    def heading(index, name, lines):
+        b=text(28 if mobile else 44,74,str(index).zfill(2)+' / '+name,24 if mobile else 27,'strong')
+        for i,value in enumerate(lines):b+=text(28 if mobile else 44,104+i*23,value,14 if mobile else 16,'muted')
+        return b
+    def frame(index,body,footer):
+        bar=''
+        for j in range(4):
+            x=28+j*(w-56)/4
+            bar+=f'<path d="M{x:.1f} {h-37}h{(w-72)/4:.1f}" stroke="{accent if j==index else line}" stroke-width="2"/>'
+        return f'<g class="scene s{index}">{body}{bar}'+text(28,h-17,footer,10,'mono muted')+'</g>'
+
+    body = rect(.5,.5,w-1,h-1,16,'background')
+    body += '<rect x="18" y="52" width="'+str(w-36)+'" height="'+str(h-110)+'" fill="url(#grid)" opacity=".35"/>'
+    for x,y,sx,sy in [(16,16,1,1),(w-16,16,-1,1),(16,h-16,1,-1),(w-16,h-16,-1,-1)]:
+        body+=path(f'M{x} {y+18*sy}V{y}h{18*sx}',extra='stroke-width="1.2"')
+    body+=text(w-28,32,'gdfaler',12,'mono muted','text-anchor="end"')
+
+    # Identity. All copy is factual and also available as text below the image.
+    x=28 if mobile else 48
+    identity=text(x,79,'PROFILE / NATIVE APPS',10,'mono accent','letter-spacing="2"')
+    identity+=text(x,145,'Egor',54 if mobile else 66,'strong')
+    identity+=path(f'M{x} 168h{220 if mobile else 290}','accent-stroke', 'stroke-width="1.5"')
+    if mobile:
+        identity+=text(x,202,'macOS apps. Systems.',18,'muted')+text(x,229,'Graphics. Machine learning.',18,'muted')
+        start,gap,keyx,valx=279,31,28,120
+    else:
+        identity+=text(x,208,'macOS apps. Systems. Graphics. ML.',23,'muted')
+        start,gap,keyx,valx=269,32,48,157
+    for i,(key,value) in enumerate([('study','CS @ BMSTU'),('native','Swift / SwiftUI / AppKit'),('exploring','Java / Python / C++'),('projects','apps, a voxel engine, a transformer')]):
+        if mobile and key=='projects':value='apps / graphics / ML'
+        identity+=text(keyx,start+i*gap,key,11,'mono muted')+text(valx,start+i*gap,value,11 if mobile else 13,'mono')
+    lx,ly,lw,lh=(112,418,196,116) if mobile else (620,162,220,157)
+    identity+=rect(lx,ly,lw,lh,9,'outline')+rect(lx+lw*.33,ly,lw*.34,13,5,'notch')
+    identity+=path(f'M{lx-12} {ly+lh+8}h{lw+24}l-10 8h-{lw+4}z','line')
+    for i,name in enumerate(('dynamic-island','hwmonitor','clipshot')):
+        identity+=icon(name,(147 if mobile else 635)+i*(48 if mobile else 72),552 if mobile else 349,29 if mobile else 40)
+    body+=frame(0,identity,'Egor / CS student at BMSTU')
+
+    # DynamicIsland: schematic of real functions, without fictitious media metadata.
+    stage=heading(1,'DynamicIsland',['Music, timers and alerts', 'around the MacBook notch.'] if mobile else ['Music, timers and alerts around the MacBook notch.'])
+    sx,sy,sw,sh=(30,192,360,211) if mobile else (52,166,536,254)
+    stage+=rect(sx,sy,sw,sh,12,'outline')
+    stage+=path(f'M{sx-8} {sy+sh+9}h{sw+16}l-14 8H{sx+6}z','line')
+    cx=sx+sw/2;ny=sy-1;nw=210 if mobile else 254
+    stage+=rect(cx-45,ny,90,24,10,'notch')
+    stage+=f'<g class="island-shell">'+rect(cx-nw/2,ny,nw,96,25,'island')+'</g>'
+    stage+='<g class="music-mode">'+text(cx-30,ny+34,'Music',15,'light strong')
+    for i,height in enumerate((14,26,36,22,30,12)):
+        stage+=f'<rect class="equalizer q{i%3}" x="{cx-68+i*9}" y="{ny+72-height}" width="4" height="{height}" rx="2" fill="#a69bf7"/>'
+    stage+=f'<path d="M{cx+22} {ny+51}v18l14-9z" fill="#e8eaf2"/>'
+    stage+=path(f'M{cx+46} {ny+52}v16m6-16v16','light-stroke','stroke-width="2"')+'</g>'
+    stage+='<g class="timer-mode">'+f'<circle cx="{cx-45}" cy="{ny+47}" r="21" fill="none" stroke="#77708f" stroke-width="3"/>'
+    stage+=f'<circle class="timer-ring" cx="{cx-45}" cy="{ny+47}" r="21" fill="none" stroke="#a69bf7" stroke-width="3" stroke-dasharray="84 48"/>'
+    stage+=text(cx-9,ny+53,'Timer',17,'light strong')+'</g>'
+    stage+=path(f'M{cx} {sy+104}v34h-{90 if mobile else 140}','accent-stroke','stroke-dasharray="3 5"')
+    stage+=text(sx+20,sy+159,'a useful notch',12,'mono muted')
+    if mobile:
+        stage+=text(28,464,'Music controls / timers / system alerts',12,'mono')
+        stage+=text(28,494,'Swift · SwiftUI',13,'muted')
+        stage+=text(28,530,'DynamicIsland',12,'mono accent')
+    else:
+        for y,label in [(185,'IN THE APP'),(230,'Music controls'),(269,'Timers'),(308,'System alerts')]:
+            stage+=text(650,y,label,11 if y==185 else 15,'mono muted' if y==185 else '')
+        stage+=text(650,376,'Swift / SwiftUI',12,'mono muted')
+    body+=frame(1,stage,'DynamicIsland / interface schematic')
+
+    # HWMonitor: interfaces and capabilities only, never sample temperatures or rates.
+    stage=heading(2,'HWMonitor',['A closer look at', 'Apple Silicon.'] if mobile else ['A closer look at Apple Silicon.'])
+    cx,cy=(210,309) if mobile else (319,290)
+    core=112 if mobile else 136
+    stage+=rect(cx-core/2,cy-core/2,core,core,9,'outline')
+    for i in range(7):
+        k=(i-3)*12
+        stage+=path(f'M{cx-core/2-8} {cy+k}h8M{cx+core/2} {cy+k}h8M{cx+k} {cy-core/2-8}v8M{cx+k} {cy+core/2}v8','line')
+    stage+=icon('hwmonitor',cx-41,cy-41,82)
+    boxes=[(26,220,'temperature'),(292,220,'power'),(26,366,'processes'),(292,366,'frequency')] if mobile else [(48,192,'temperature'),(486,192,'power'),(48,346,'processes'),(486,346,'frequency')]
+    for i,(bx,by,label) in enumerate(boxes):
+        bw=102 if mobile else 134
+        stage+=rect(bx,by,bw,46,7,'outline')+text(bx+bw/2,by+28,label,10 if mobile else 12,'mono','text-anchor="middle"')
+        left=i%2==0;port=cx+(-core/2 if left else core/2);yy=cy+(-18 if i<2 else 18)
+        edge=bx+bw if left else bx;mid=(port+edge)/2
+        d=f'M{port} {yy}H{mid}V{by+23}H{edge}'
+        stage+=path(d,'line')+path(d,'signal','stroke-width="1.8"')
+    if mobile:
+        stage+=text(28,472,'SMC / IOReport / process statistics',12,'mono')
+        stage+=text(28,503,'Temperatures, power and processes.',14,'muted')
+        stage+=text(28,531,'Native Swift / Apple Silicon',12,'mono muted')
+    else:
+        stage+=text(668,188,'UNDER THE HOOD',10,'mono muted')
+        for i,label in enumerate(('SMC','IOReport','Process statistics')):stage+=text(668,234+i*40,label,14,'mono')
+        stage+=text(668,377,'Native Swift',12,'mono muted')
+    body+=frame(2,stage,'HWMonitor / capability diagram')
+
+    # TorrentPlayer: visual explanation of streaming, with its actual MVP status.
+    stage=heading(3,'TorrentPlayer',['Local video playback +', 'BitTorrent streaming.'] if mobile else ['Local video playback + BitTorrent streaming.'])
+    px,py,step=(34,246,18) if mobile else (68,236,23)
+    for row in range(4):
+        for col in range(4):
+            stage+=rect(px+col*step,py+row*step,step-5,step-5,2,'piece '+('filled' if (col+row)%3 else ''),extra=f'style="animation-delay:{(row*4+col)*.19}s"')
+    bx,by,bw,bh=(159,253,89,58) if mobile else (253,248,112,69)
+    stage+=rect(bx,by,bw,bh,7,'outline')
+    for i in range(4):stage+=rect(bx+12+i*(bw-24)/4,by+18,(bw-32)/4,22,3,'buffer-cell')
+    vx,vy,vw,vh=(291,236,101,84) if mobile else (454,215,140,112)
+    stage+=rect(vx,vy,vw,vh,8,'outline')
+    stage+=f'<path d="M{vx+vw*.42} {vy+vh*.3}v{vh*.4}l{vw*.24}-{vh*.2}z" fill="{accent}"/>'
+    for ax,ay,end in [(px+step*4+3,by+bh/2,bx-10),(bx+bw+10,by+bh/2,vx-10)]:
+        stage+=path(f'M{ax} {ay}H{end}m-5-4 5 4-5 4','accent-stroke','stroke-width="1.3"')
+    for tx,label in [(px,'pieces'),(bx,'buffer'),(vx,'playback')]:stage+=text(tx,358 if mobile else 365,label,11,'mono muted')
+    stage+=f'<g class="packet" style="--travel:{151 if mobile else 290}px"><rect x="{px+step*4+3}" y="{by+bh/2-3}" width="6" height="6" rx="1" fill="{green}"/></g>'
+    if mobile:
+        stage+=text(28,450,'Swift / AppKit / C++',13,'mono')
+        stage+=text(28,481,'libtorrent / mpv',13,'mono muted')
+        stage+=text(28,530,'EARLY MVP',11,'mono accent','letter-spacing="2"')
+    else:
+        stage+=text(660,186,'NATIVE PLAYER',11,'mono muted')
+        stage+=text(660,232,'Swift / AppKit',13,'mono')+text(660,270,'C++ / libtorrent',13,'mono')+text(660,308,'mpv playback',13,'mono')
+        stage+=text(660,377,'EARLY MVP',11,'mono accent','letter-spacing="2"')
+    body+=frame(3,stage,'TorrentPlayer / streaming architecture · early MVP')
+
+    css=f'''text{{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:{fg}}}.mono{{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}}.strong{{font-weight:650}}.muted{{fill:{muted}}}.accent{{fill:{accent}}}.background{{fill:{bg}}}.panel{{fill:{panel}}}.outline{{fill:{panel};stroke:{line};stroke-width:1.2}}.line{{stroke:{line}}}.accent-stroke{{stroke:{accent}}}.light{{fill:#e8eaf2}}.light-stroke{{stroke:#e8eaf2}}.notch,.island{{fill:#07090f}}.island{{stroke:#665b9d;stroke-width:1.3}}.scene{{opacity:0;animation:scene 28s linear infinite}}.s0{{opacity:1}}.s1{{animation-delay:7s}}.s2{{animation-delay:14s}}.s3{{animation-delay:21s}}@keyframes scene{{0%{{opacity:0}}2%,22%{{opacity:1}}25%,100%{{opacity:0}}}}.island-shell{{transform-box:fill-box;transform-origin:50% 0;animation:expand 7s ease-in-out infinite}}@keyframes expand{{0%,100%{{transform:scaleX(.62)}}15%,85%{{transform:scaleX(1)}}}}.music-mode{{animation:music 7s infinite}}.timer-mode{{opacity:0;animation:timer 7s infinite}}@keyframes music{{0%,42%{{opacity:1}}48%,100%{{opacity:0}}}}@keyframes timer{{0%,46%{{opacity:0}}52%,94%{{opacity:1}}100%{{opacity:0}}}}.equalizer{{transform-box:fill-box;transform-origin:bottom;animation:eq .9s ease-in-out infinite alternate}}.q1{{animation-delay:-.3s}}.q2{{animation-delay:-.6s}}@keyframes eq{{to{{transform:scaleY(.3)}}}}.timer-ring{{transform-box:fill-box;transform-origin:center;animation:turn 7s linear infinite}}@keyframes turn{{to{{transform:rotate(360deg)}}}}.signal{{stroke:{accent};stroke-dasharray:9 130;animation:signal 3.4s linear infinite}}@keyframes signal{{to{{stroke-dashoffset:-139}}}}.piece{{fill:{panel};stroke:{line};stroke-width:1;animation:piece 3s ease-in-out infinite alternate}}.filled{{fill:{accent}}}@keyframes piece{{to{{fill:{accent};opacity:.5}}}}.buffer-cell{{fill:{accent};opacity:.55}}.packet{{animation:packet 3s ease-in-out infinite}}@keyframes packet{{0%{{transform:translateX(0);opacity:0}}15%,85%{{opacity:1}}100%{{transform:translateX(var(--travel));opacity:0}}}}@media(prefers-reduced-motion:reduce){{*{{animation:none!important}}.scene{{opacity:0}}.s0{{opacity:1}}}}'''
+    desc='Egor, gdfaler. CS student at BMSTU. Native macOS apps, systems, graphics and machine learning. Cycles through identity and original schematic illustrations of DynamicIsland, HWMonitor and TorrentPlayer. These illustrate application capabilities, not live measurements. TorrentPlayer is an early MVP. Full text and project links are below the image.'
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-labelledby="title desc"><title id="title">gdfaler / projects under the hood</title><desc id="desc">{html.escape(desc)}</desc><defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="{line}" stroke-width=".45"/></pattern></defs><style>{css}</style>{body}</svg>'''
+
+
+
+def badge(name, theme):
+    width = 24 + len(name) * 7.2
+    bg, fg, line = ('#141924','#c9c3f4','#3d4358') if theme=='dark' else ('#eceef6','#4e4780','#bfc6da')
+    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{width:.1f}" height="28" viewBox="0 0 {width:.1f} 28" role="img" aria-labelledby="title"><title id="title">{html.escape(name)} repository</title><rect x=".5" y=".5" width="{width-1:.1f}" height="27" rx="5" fill="{bg}" stroke="{line}"/><text x="12" y="18" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" fill="{fg}">{html.escape(name)}</text></svg>'
+
+def generate(out,appdir=None):
+    files={f'showcase-{theme}{"-mobile" if mobile else ""}.svg':render(theme,mobile,appdir) for theme in ('dark','light') for mobile in (False,True)}
+    for theme in ('dark','light'):
+        for name in ('DynamicIsland','HWMonitor','TorrentPlayer','ClipShot'):
+            files[f'link-{name.lower()}-{theme}.svg']=badge(name,theme)
+    out.mkdir(parents=True,exist_ok=True)
+    for name,content in files.items():
+        temp=out/(name+'.tmp');temp.write_text(content,encoding='utf-8');temp.replace(out/name)
+
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--output-dir',type=Path,default=ROOT/'assets/showcase')
+    args=p.parse_args();generate(args.output_dir);print('Rendered showcase and project navigation SVGs.')
