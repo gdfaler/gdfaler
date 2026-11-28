@@ -1,9 +1,9 @@
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark-mobile.svg">
-  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/showcase/showcase-light-mobile.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/showcase/showcase-light.svg">
-  <img src="assets/showcase/showcase-light.svg" width="100%" alt="Egor, gdfaler. CS student at BMSTU. Animated schematics of DynamicIsland, HWMonitor and TorrentPlayer. Full text is available in About and projects below.">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark-mobile.svg?v=1cb97a8169fc">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/showcase/showcase-light-mobile.svg?v=ff9cf9760c34">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark.svg?v=0d55642995ed">
+  <source media="(prefers-color-scheme: light)" srcset="assets/showcase/showcase-light.svg?v=1a56f8970884">
+  <img src="assets/showcase/showcase-light.svg?v=1a56f8970884" width="100%" alt="Egor, gdfaler. CS student at BMSTU. Animated schematics of DynamicIsland, HWMonitor and TorrentPlayer. Full text is available in About and projects below.">
 </picture>
 
 <p align="center">
