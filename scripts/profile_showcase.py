@@ -72,10 +72,11 @@ def render(theme, mobile=False, appdir=None):
         identity+=f'<g class="intro-fact" style="animation-delay:{.48+i*.24:.2f}s">'+text(keyx,start+i*gap,key,11,'mono muted')+text(valx,start+i*gap,value,11 if mobile else 13,'mono')+'</g>'
     lx,ly,lw,lh=(112,418,196,116) if mobile else (620,162,220,157)
     identity+='<g class="intro-laptop">'
-    identity+=rect(lx,ly,lw,lh,9,'outline intro-trace','pathLength="1"')+rect(lx+lw*.33,ly,lw*.34,13,5,'notch')
+    identity+=rect(lx,ly,lw,lh,9,'outline intro-trace','pathLength="1"')
     identity+=path(f'M{lx-12} {ly+lh+8}h{lw+24}l-10 8h-{lw+4}z','line intro-trace','pathLength="1"')
-    identity+=f'<defs><clipPath id="screen-glass"><rect x="{lx+3}" y="{ly+15}" width="{lw-6}" height="{lh-18}" rx="6"/></clipPath><linearGradient id="glass-sheen"><stop offset="0" stop-color="{fg}" stop-opacity="0"/><stop offset=".48" stop-color="{fg}" stop-opacity=".035"/><stop offset=".6" stop-color="{fg}" stop-opacity=".12"/><stop offset="1" stop-color="{fg}" stop-opacity="0"/></linearGradient></defs>'
-    identity+=f'<g clip-path="url(#screen-glass)"><path class="intro-screen-sheen" d="M{lx-lw} {ly}h{lw*.6}l-{lh*.5} {lh}h-{lw*.6}z" fill="url(#glass-sheen)" style="--sheen-travel:{lw*2.7}px"/></g>'
+    identity+=f'<defs><clipPath id="screen-glass"><rect x="{lx+2}" y="{ly+2}" width="{lw-4}" height="{lh-4}" rx="7"/></clipPath><linearGradient id="glass-base" x1="0" y1="0" x2="1" y2="1"><stop stop-color="{fg}" stop-opacity=".09"/><stop offset=".48" stop-color="{fg}" stop-opacity=".015"/><stop offset="1" stop-color="{accent}" stop-opacity=".035"/></linearGradient><linearGradient id="glass-sheen"><stop stop-color="{fg}" stop-opacity="0"/><stop offset=".4" stop-color="{fg}" stop-opacity=".025"/><stop offset=".57" stop-color="{fg}" stop-opacity=".16"/><stop offset="1" stop-color="{fg}" stop-opacity="0"/></linearGradient></defs>'
+    identity+=f'<g clip-path="url(#screen-glass)"><rect x="{lx}" y="{ly}" width="{lw}" height="{lh}" fill="url(#glass-base)"/><path class="intro-screen-sheen" d="M{lx-lw*1.7} {ly-lh*.5}h{lw*1.45}l{lh*.65} {lh*2}h-{lw*1.45}z" fill="url(#glass-sheen)" style="--sheen-travel:{lw*3.8}px"/></g>'
+    identity+=rect(lx+lw*.33,ly,lw*.34,13,5,'notch')
     identity+='</g>'
     if not mobile:
         for i in range(3):
@@ -200,7 +201,7 @@ text{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;fill:var(-
 .intro-laptop{animation:laptop-assemble 28s cubic-bezier(.2,.7,.2,1) both infinite;animation-delay:.1s;transform-box:fill-box;transform-origin:center}
 @keyframes laptop-assemble{0%,2%{opacity:0;transform:translateY(22px) scale(.94)}6%,24%{opacity:1;transform:translateY(0) scale(1)}25%,100%{opacity:0;transform:translateY(0) scale(1)}}
 .intro-screen-sheen{animation:screen-sheen 7s cubic-bezier(.4,0,.2,1) infinite}
-@keyframes screen-sheen{0%,18%{transform:translateX(0);opacity:0}28%{opacity:1}75%{transform:translateX(var(--sheen-travel));opacity:0}100%{transform:translateX(var(--sheen-travel));opacity:0}}
+@keyframes screen-sheen{0%,12%{transform:translateX(0);opacity:0}25%{opacity:1}85%{transform:translateX(var(--sheen-travel));opacity:.3}100%{transform:translateX(var(--sheen-travel));opacity:0}}
 .intro-app{animation:app-arrive 28s cubic-bezier(.16,.9,.25,1) both infinite;transform-box:fill-box;transform-origin:center}
 @keyframes app-arrive{0%,2%{opacity:0;transform:translateY(10px) scale(.94)}8%,24%{opacity:1;transform:translateY(0) scale(1)}25%,100%{opacity:0;transform:translateY(0) scale(1)}}
 .app-float{animation:app-float 3.8s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}

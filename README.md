@@ -1,9 +1,9 @@
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark-mobile.svg?v=0cf6bf4139a2">
-  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/showcase/showcase-light-mobile.svg?v=7ed0058997c2">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark.svg?v=04a570c56a7d">
-  <source media="(prefers-color-scheme: light)" srcset="assets/showcase/showcase-light.svg?v=6bf456f53050">
-  <img src="assets/showcase/showcase-light.svg?v=6bf456f53050" width="100%" alt="Egor, gdfaler. CS student at BMSTU. Animated schematics of DynamicIsland, HWMonitor and TorrentPlayer. Full text is available in About and projects below.">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark-mobile.svg?v=a2e2600d082e">
+  <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/showcase/showcase-light-mobile.svg?v=49ba501dacbd">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/showcase/showcase-dark.svg?v=6e3bc917a6a7">
+  <source media="(prefers-color-scheme: light)" srcset="assets/showcase/showcase-light.svg?v=17204cb18476">
+  <img src="assets/showcase/showcase-light.svg?v=17204cb18476" width="100%" alt="Egor, gdfaler. CS student at BMSTU. Animated schematics of DynamicIsland, HWMonitor and TorrentPlayer. Full text is available in About and projects below.">
 </picture>
 
 <p align="center">
@@ -28,12 +28,12 @@ Also: [a Java voxel engine](https://github.com/gdfaler/MineAndCraft) and [a smal
 </details>
 
 <details>
-<summary><samp>ACTIVITY / Contribution World</samp></summary>
+<summary><samp>ACTIVITY / Contribution Array</samp></summary>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-world/world-dark.svg?v=9911437c0860">
-  <source media="(prefers-color-scheme: light)" srcset="assets/contribution-world/world-light.svg?v=1312364029ea">
-  <img src="assets/contribution-world/world-light.svg?v=1312364029ea" width="100%" alt="Contribution World: one voxel per day; height and slate-to-violet color reflect GitHub contribution activity. Dated snapshot; decorative trees.">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-world/world-dark.svg?v=3187c53bc8f6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/contribution-world/world-light.svg?v=cb0b24207f02">
+  <img src="assets/contribution-world/world-light.svg?v=cb0b24207f02" width="100%" alt="Contribution Array: one calendar position per day, with 3D columns for active days. Height follows real contribution counts on a logarithmic scale; cap colors follow GitHub activity levels. Dated snapshot.">
 </picture>
 
 </details>
