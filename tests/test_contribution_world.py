@@ -59,6 +59,35 @@ class WorldTests(unittest.TestCase):
             self.assertIn('PEAK / DAY',labels)
             self.assertNotIn('decorative trees',labels)
 
+    def test_calendar_axes_match_daily_positions(self):
+        data=w.demo();days=w.validate(data)
+        root=ET.fromstring(w.render(data,'dark'))
+        origin=dt.date.fromisoformat(days[0]['date'])
+        origin-=dt.timedelta(days=(origin.weekday()+1)%7)
+        row_y={};week_x={}
+        for e in root.iter():
+            if 'data-date' not in e.attrib:continue
+            date=dt.date.fromisoformat(e.attrib['data-date'])
+            week=(date-origin).days//7;row=(date.weekday()+1)%7
+            self.assertEqual(int(e.attrib['data-week']),week)
+            self.assertEqual(int(e.attrib['data-weekday']),row)
+            x=float(e.attrib['data-x']);y=float(e.attrib['data-baseline'])
+            if row in row_y:self.assertEqual(row_y[row],y)
+            if week in week_x:self.assertEqual(week_x[week],x)
+            row_y[row]=y;week_x[week]=x
+        self.assertEqual(len(row_y),7)
+        self.assertEqual([row_y[r] for r in sorted(row_y)],sorted(row_y.values()))
+        self.assertEqual([week_x[k] for k in sorted(week_x)],sorted(week_x.values()))
+        labels=[e for e in root.iter() if e.attrib.get('class')=='weekday']
+        self.assertEqual([e.text for e in labels],['SUN','MON','TUE','WED','THU','FRI','SAT'])
+        months=[e for e in root.iter() if e.attrib.get('class')=='month']
+        starts=[int(e.attrib['data-start-week']) for e in months]
+        ends=[int(e.attrib['data-end-week']) for e in months]
+        self.assertEqual(starts[0],0)
+        self.assertEqual(ends[-1],max(week_x)+1)
+        self.assertEqual(ends[:-1],starts[1:])
+        self.assertTrue(all(a<b for a,b in zip(starts,ends)))
+
     def test_zero_and_sparse_calendars(self):
         data=w.demo()
         for week in data['calendar']['weeks']:

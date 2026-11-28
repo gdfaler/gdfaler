@@ -28,12 +28,12 @@ Also: [a Java voxel engine](https://github.com/gdfaler/MineAndCraft) and [a smal
 </details>
 
 <details>
-<summary><samp>ACTIVITY / Contribution Array</samp></summary>
+<summary><samp>ACTIVITY / Contribution calendar</samp></summary>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-world/world-dark.svg?v=3187c53bc8f6">
-  <source media="(prefers-color-scheme: light)" srcset="assets/contribution-world/world-light.svg?v=cb0b24207f02">
-  <img src="assets/contribution-world/world-light.svg?v=cb0b24207f02" width="100%" alt="Contribution Array: one calendar position per day, with 3D columns for active days. Height follows real contribution counts on a logarithmic scale; cap colors follow GitHub activity levels. Dated snapshot.">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-world/world-dark.svg?v=ca4f059ee8d4">
+  <source media="(prefers-color-scheme: light)" srcset="assets/contribution-world/world-light.svg?v=365806487295">
+  <img src="assets/contribution-world/world-light.svg?v=365806487295" width="100%" alt="Contribution calendar: weeks run left to right, seven weekday rows run top to bottom. Month brackets align with week columns. Each day has a flat marker or a raised 3D column. Height follows real contribution counts on a logarithmic scale; cap colors follow GitHub activity levels. Dated snapshot.">
 </picture>
 
 </details>
