@@ -69,7 +69,7 @@ class WorldTests(unittest.TestCase):
         request=call.call_args.args[0]; body=json.loads(request.data)
         self.assertIn('contributionCalendar',body['query'])
         self.assertEqual(body['variables']['from'],'2025-11-28T00:00:00Z')
-        self.assertIn('LIVE DATA',w.render(data,'dark'))
+        self.assertIn('GITHUB GRAPHQL · SNAPSHOT',w.render(data,'dark'))
         self.assertNotIn('SYNTHETIC DEMO',w.render(data,'dark'))
 
     def test_api_errors_and_retry(self):

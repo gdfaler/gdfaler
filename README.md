@@ -31,9 +31,9 @@ Also: [a Java voxel engine](https://github.com/gdfaler/MineAndCraft) and [a smal
 <summary><samp>ACTIVITY / Contribution World</samp></summary>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-light.svg">
-  <img src="https://raw.githubusercontent.com/gdfaler/gdfaler/contribution-world/world-light.svg" width="100%" alt="Contribution World: one voxel per day; height and terrain color reflect GitHub contribution activity.">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contribution-world/world-dark.svg?v=9911437c0860">
+  <source media="(prefers-color-scheme: light)" srcset="assets/contribution-world/world-light.svg?v=1312364029ea">
+  <img src="assets/contribution-world/world-light.svg?v=1312364029ea" width="100%" alt="Contribution World: one voxel per day; height and slate-to-violet color reflect GitHub contribution activity. Dated snapshot; decorative trees.">
 </picture>
 
 </details>

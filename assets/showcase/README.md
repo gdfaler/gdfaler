@@ -29,6 +29,6 @@ python3 -m unittest discover -s tests -v
 
 The showcase has light/dark variants, separate mobile layouts, accessible descriptions and a reduced-motion fallback showing the identity screen. All information and project links also appear in the README's expandable text section. Assets are self-contained: no JavaScript, remote fonts, third-party widgets or external SVG resources. No background refresh is needed or promised for these authored illustrations.
 
-The existing Contribution World generator, publishing workflow and output branch remain unchanged. Its image stays available in a separate expandable section.
+Contribution World uses the same slate/violet palette, background grid, frame and typography as the showcase. The activity-to-height mapping and terrain geometry are preserved. Its publishing workflow and output branch remain unchanged. For this preview, README uses the local real-data snapshot in `assets/contribution-world`; see its README for rebuilding and the merge handoff.
 
 Hero image references include content-version queries so a changed animation does not reuse a previous cached image. Refresh these queries when regenerating changed hero files.
